@@ -6,7 +6,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 import lombok.extern.slf4j.Slf4j;
 
-@SpringBootApplication(scanBasePackages = { "com.shinemo.htdong" })
+@SpringBootApplication(scanBasePackages = { "com.htdong" })
 @EnableScheduling
 @Slf4j
 public class MainApplication {
