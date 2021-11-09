@@ -8,7 +8,6 @@
         <version>1.0.0</version>
     </parent>
 
-    <groupId>com.htdong</groupId>
     <artifactId>client</artifactId>
     <version>${client-version}</version>
 
@@ -17,5 +16,9 @@
     <name>htdong-client</name>
 
     <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
     </dependencies>
 </project>

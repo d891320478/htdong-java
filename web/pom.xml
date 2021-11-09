@@ -8,9 +8,7 @@
         <version>1.0.0</version>
     </parent>
 
-    <groupId>com.htdong</groupId>
     <artifactId>web</artifactId>
-    <version>1.0.0</version>
 
     <packaging>jar</packaging>
 
@@ -36,5 +34,6 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!-- spring -->
+        <!-- 其它 -->
     </dependencies>
 </project>

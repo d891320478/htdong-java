@@ -48,6 +48,12 @@
                 <version>${spring-boot-version}</version>
             </dependency>
             <!-- spring -->
+            <!-- 其它 -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.14</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
