@@ -16,14 +16,38 @@
         <module>dal</module>
         <module>web</module>
     </modules>
-    
+
     <properties>
-        <spring-boot-version></spring-boot-version>
+        <spring-boot-version>2.5.6</spring-boot-version>
         <spring-version></spring-version>
+        <client-version>1.0.0-SNAPSHOT</client-version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!-- 子项目 -->
+            <dependency>
+                <groupId>com.htdong</groupId>
+                <artifactId>client</artifactId>
+                <version>${client-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.htdong</groupId>
+                <artifactId>core</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.htdong</groupId>
+                <artifactId>dal</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+            <!-- springboot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot-version}</version>
+            </dependency>
+            <!-- spring -->
         </dependencies>
     </dependencyManagement>
 </project>
