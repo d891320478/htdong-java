@@ -1,4 +1,4 @@
 server:
-   port: 9961
+   port: 9760
    servlet:
       context-path: /htdong
