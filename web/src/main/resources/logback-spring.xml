@@ -43,7 +43,7 @@
     </appender>
 
     <appender name="PROJECT" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${logPath}/dev-ops.log</file>
+        <file>${logPath}/project.log</file>
         <append>true</append>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <FileNamePattern>${logPath}/dev-ops.log.%d{yyyy-MM-dd}-%i.gz</FileNamePattern>
