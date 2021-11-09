@@ -16,5 +16,14 @@
         <module>dal</module>
         <module>web</module>
     </modules>
+    
+    <properties>
+        <spring-boot-version></spring-boot-version>
+        <spring-version></spring-version>
+    </properties>
 
+    <dependencyManagement>
+        <dependencies>
+        </dependencies>
+    </dependencyManagement>
 </project>
