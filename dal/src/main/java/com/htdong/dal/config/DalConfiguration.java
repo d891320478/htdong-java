@@ -1,9 +1,17 @@
 package com.htdong.dal.config;
 
+import java.io.IOException;
+
+import javax.sql.DataSource;
+
+import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import com.alibaba.druid.pool.DruidDataSource;
 
@@ -31,5 +39,14 @@ public class DalConfiguration {
         dataSource.setPoolPreparedStatements(true);
         dataSource.setMaxPoolPreparedStatementPerConnectionSize(20);
         return dataSource;
+    }
+    
+    @Bean
+    public SqlSessionFactoryBean sqlSessionFactoryBean(
+            @Autowired @Qualifier(value = "dataSource") DataSource dataSource)  throws IOException {
+        SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
+        bean.setDataSource(dataSource);
+        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:sqlmap/*.xml"));
+        return bean;
     }
 }
