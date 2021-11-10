@@ -40,10 +40,10 @@ public class DalConfiguration {
         dataSource.setMaxPoolPreparedStatementPerConnectionSize(20);
         return dataSource;
     }
-    
+
     @Bean
     public SqlSessionFactoryBean sqlSessionFactoryBean(
-            @Autowired @Qualifier(value = "dataSource") DataSource dataSource)  throws IOException {
+            @Autowired @Qualifier(value = "dataSource") DataSource dataSource) throws IOException {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
         bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:sqlmap/*.xml"));
