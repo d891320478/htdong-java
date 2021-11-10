@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 import lombok.extern.slf4j.Slf4j;
 
-@PropertySource(value = {"/root/conf/application.properties"})
+@PropertySource(value = {"file:/root/conf/application.properties"})
 @SpringBootApplication(scanBasePackages = { "com.htdong" })
 @EnableScheduling
 @Slf4j
