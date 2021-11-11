@@ -16,7 +16,6 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import com.alibaba.druid.pool.DruidDataSource;
 
 @Configuration
-@MapperScan(basePackages = { "com.htdong.dal.mapper" })
 public class DalConfiguration {
 
     @Bean(initMethod = "init")
