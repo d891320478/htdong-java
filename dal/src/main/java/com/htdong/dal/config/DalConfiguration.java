@@ -19,7 +19,7 @@ import com.alibaba.druid.pool.DruidDataSource;
 @MapperScan(basePackages = { "com.htdong.mapper" })
 public class DalConfiguration {
 
-    @Bean(initMethod = "init")
+    //@Bean(initMethod = "init")
     public DruidDataSource dataSource(@Value("${jdbc.url}") String url, @Value("${jdbc.user}") String user,
             @Value("${jdbc.password}") String password) {
         DruidDataSource dataSource = new DruidDataSource();
@@ -42,7 +42,7 @@ public class DalConfiguration {
         return dataSource;
     }
 
-    @Bean
+    //@Bean
     public SqlSessionFactoryBean sqlSessionFactoryBean(
             @Autowired @Qualifier(value = "dataSource") DataSource dataSource) throws IOException {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
