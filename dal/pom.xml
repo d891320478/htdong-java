@@ -38,6 +38,10 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
         <!-- javax -->
         <dependency>
             <groupId>jakarta.annotation</groupId>

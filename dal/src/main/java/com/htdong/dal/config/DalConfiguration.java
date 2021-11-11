@@ -38,6 +38,7 @@ public class DalConfiguration {
         dataSource.setTestOnReturn(false);
         dataSource.setPoolPreparedStatements(true);
         dataSource.setMaxPoolPreparedStatementPerConnectionSize(20);
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         return dataSource;
     }
 
