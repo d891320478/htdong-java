@@ -7,23 +7,24 @@ import javax.sql.DataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.htdong.client.util.ConfInitUtil;
 
 @Configuration
+@EnableTransactionManagement(proxyTargetClass = true)
 public class DalConfiguration {
 
     @Bean(initMethod = "init")
-    public DruidDataSource dataSource(@Value("${jdbc.url}") String url, @Value("${jdbc.user}") String user,
-            @Value("${jdbc.password}") String password) {
+    public DruidDataSource dataSource(@Qualifier @Autowired ConfInitUtil confInitUtil) {
         DruidDataSource dataSource = new DruidDataSource();
-        dataSource.setUrl(url);
-        dataSource.setUsername(user);
-        dataSource.setPassword(password);
+        dataSource.setUrl(confInitUtil.get("jdbc.url"));
+        dataSource.setUsername(confInitUtil.get("jdbc.user"));
+        dataSource.setPassword(confInitUtil.get("jdbc.password"));
         dataSource.setInitialSize(5);
         dataSource.setMinIdle(5);
         dataSource.setMaxActive(50);
