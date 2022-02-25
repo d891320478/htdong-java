@@ -2,7 +2,7 @@
 <configuration debug="false">
 
     <property name="loglevel" value="debug" />
-    <property name="logPath" value="/data/logs/htdong" />
+    <springProperty scope="context" name="logPath" source="log.path"/>
 
     <appender name="ERROR_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${logPath}/error.log</file>
