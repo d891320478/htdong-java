@@ -30,28 +30,33 @@ public class ConfInitUtil {
         return CONF_MAP.getOrDefault(key, defaultValue);
     }
 
-    private synchronized void init() {
+    private void init() {
         if (CONF_MAP != null) {
             return;
         }
-        CONF_MAP = new ConcurrentHashMap<>();
-        File confFile = new File(confFilePath);
-        try (Scanner in = new Scanner(confFile)) {
-            while (in.hasNextLine()) {
-                String s = in.nextLine();
-                if (StringUtils.isBlank(s)) {
-                    continue;
-                }
-                int eqInx = s.indexOf("=");
-                if (eqInx == -1 || eqInx + 1 >= s.length() || StringUtils.isBlank(s.substring(eqInx + 1))) {
-                    continue;
-                }
-                String k = s.substring(0, eqInx).trim();
-                String v = eqInx + 1 >= s.length() ? null : s.substring(eqInx + 1).trim();
-                CONF_MAP.put(k, v);
+        synchronized (this) {
+            if (CONF_MAP != null) {
+                return;
             }
-        } catch (FileNotFoundException e) {
-            log.error("config file not exist.");
+            CONF_MAP = new ConcurrentHashMap<>();
+            File confFile = new File(confFilePath);
+            try (Scanner in = new Scanner(confFile)) {
+                while (in.hasNextLine()) {
+                    String s = in.nextLine();
+                    if (StringUtils.isBlank(s)) {
+                        continue;
+                    }
+                    int eqInx = s.indexOf("=");
+                    if (eqInx == -1 || eqInx + 1 >= s.length() || StringUtils.isBlank(s.substring(eqInx + 1))) {
+                        continue;
+                    }
+                    String k = s.substring(0, eqInx).trim();
+                    String v = s.substring(eqInx + 1).trim();
+                    CONF_MAP.put(k, v);
+                }
+            } catch (FileNotFoundException e) {
+                log.error("config file not exist.");
+            }
         }
     }
 }
