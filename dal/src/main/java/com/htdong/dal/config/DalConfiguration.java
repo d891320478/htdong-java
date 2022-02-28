@@ -20,7 +20,7 @@ import com.htdong.client.util.ConfInitUtil;
 public class DalConfiguration {
 
     @Bean(initMethod = "init")
-    public DruidDataSource dataSource(@Qualifier @Autowired ConfInitUtil confInitUtil) {
+    public DruidDataSource dataSource(@Autowired @Qualifier(value = "confInitUtil") ConfInitUtil confInitUtil) {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(confInitUtil.get("jdbc.url"));
         dataSource.setUsername(confInitUtil.get("jdbc.user"));
