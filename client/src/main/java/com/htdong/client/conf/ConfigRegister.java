@@ -142,10 +142,14 @@ public class ConfigRegister implements BeanPostProcessor, ApplicationContextAwar
                 if (StringUtils.isBlank(s)) {
                     continue;
                 }
-                int split = s.indexOf("=");
-                if (split != -1) {
-                    kv.put(s.substring(0, split).trim(), s.substring(split + 1).trim());
+                if (StringUtils.isBlank(s)) {
+                    continue;
                 }
+                int eqInx = s.indexOf("=");
+                if (eqInx == -1 || eqInx + 1 >= s.length() || StringUtils.isBlank(s.substring(eqInx + 1))) {
+                    continue;
+                }
+                kv.put(s.substring(0, eqInx).trim(), s.substring(eqInx + 1).trim());
             }
         } catch (Exception e) {
             log.error("[getConfigFile]", e);

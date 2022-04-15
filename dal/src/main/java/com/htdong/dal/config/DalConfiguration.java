@@ -20,11 +20,11 @@ import com.htdong.client.util.ConfInitUtil;
 public class DalConfiguration {
 
     @Bean(initMethod = "init")
-    public DruidDataSource dataSource(@Autowired @Qualifier(value = "confInitUtil") ConfInitUtil confInitUtil) {
+    public DruidDataSource dataSource() {
         DruidDataSource dataSource = new DruidDataSource();
-        dataSource.setUrl(confInitUtil.get("jdbc.url"));
-        dataSource.setUsername(confInitUtil.get("jdbc.user"));
-        dataSource.setPassword(confInitUtil.get("jdbc.password"));
+        dataSource.setUrl(ConfInitUtil.get("jdbc.url"));
+        dataSource.setUsername(ConfInitUtil.get("jdbc.user"));
+        dataSource.setPassword(ConfInitUtil.get("jdbc.password"));
         dataSource.setInitialSize(5);
         dataSource.setMinIdle(5);
         dataSource.setMaxActive(50);

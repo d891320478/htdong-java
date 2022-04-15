@@ -1,2 +1,1 @@
-local.conf.file: /root/conf/application.conf
 log.path: /data/logs/htdong
