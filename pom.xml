@@ -17,8 +17,9 @@
     </modules>
 
     <properties>
-        <spring-boot-version>2.5.6</spring-boot-version>
-        <spring-version>5.3.18</spring-version>
+        <spring-boot-version>2.6.6</spring-boot-version>
+        <spring-version>5.3.19</spring-version>
+        <jackson-version>2.13.2</jackson-version>
         <client-version>1.0.0-SNAPSHOT</client-version>
     </properties>
 
@@ -116,6 +117,32 @@
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-core</artifactId>
                 <version>1.2.3</version>
+            </dependency>
+            <!-- jackson -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson-version}.2</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.datatype</groupId>
+                <artifactId>jackson-datatype-jsr310</artifactId>
+                <version>${jackson-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.datatype</groupId>
+                <artifactId>jackson-datatype-joda</artifactId>
+                <version>${jackson-version}</version>
             </dependency>
             <!-- 其它 -->
             <dependency>
