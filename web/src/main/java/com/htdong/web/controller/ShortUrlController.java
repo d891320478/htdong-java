@@ -20,7 +20,7 @@ public class ShortUrlController {
     @Resource
     private ShortUrlService shortUrlService;
 
-    @GetMapping("/${path}")
+    @GetMapping("/shortUrl/${path}")
     public ResponseEntity<Void> shortUrl(@PathVariable("path") String path, HttpServletResponse response)
             throws IOException {
         String realUrl = shortUrlService.getUrl(path);
