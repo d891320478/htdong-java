@@ -33,8 +33,8 @@ public class ShortUrlController {
     }
 
     @GetMapping("/create")
-    public ResponseEntity<Void> create(String url) {
+    public ResponseEntity<String> create(String url) {
         shortUrlService.addShortUrl(url);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body("success");
     }
 }
