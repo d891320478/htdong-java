@@ -3,6 +3,7 @@
 
     <property name="loglevel" value="debug" />
     <springProperty scope="context" name="logPath" source="log.path"/>
+    <property name="logPattern" value="%level %thread %d{yyyy-MM-dd HH:mm:ss.SSS} %class{35}.%method - %msg%n" />
 
     <appender name="ERROR_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${logPath}/error.log</file>
@@ -19,7 +20,7 @@
             <onMismatch>DENY</onMismatch>
         </filter>
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} - [%thread] %-5level -%logger{35} - %msg%n</pattern>
+            <pattern>${logPattern}</pattern>
         </layout>
     </appender>
 
@@ -38,7 +39,7 @@
             <onMismatch>DENY</onMismatch>
         </filter>
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} - [%thread] %-5level -%logger{35} - %msg%n</pattern>
+            <pattern>${logPattern}</pattern>
         </layout>
     </appender>
 
@@ -55,7 +56,7 @@
             <level>${loglevel}</level>
         </filter>
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} - [%thread] %-5level -%logger{35} - %msg%n</pattern>
+            <pattern>${logPattern}</pattern>
         </layout>
     </appender>
 
@@ -69,7 +70,7 @@
             <totalSizeCap>500MB</totalSizeCap>
         </rollingPolicy>
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} - [%thread] %-5level -%logger{35} - %msg%n</pattern>
+            <pattern>${logPattern}</pattern>
         </layout>
     </appender>
 
@@ -83,7 +84,7 @@
             <totalSizeCap>500MB</totalSizeCap>
         </rollingPolicy>
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} - [%thread] %-5level -%logger{35} - %msg%n</pattern>
+            <pattern>${logPattern}</pattern>
         </layout>
     </appender>
 
