@@ -8,7 +8,6 @@
     </parent>
 
     <artifactId>client</artifactId>
-    <version>${client-version}</version>
 
     <packaging>jar</packaging>
 
@@ -30,6 +29,10 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-annotation</artifactId>
         </dependency>
     </dependencies>
 </project>

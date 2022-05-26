@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import javax.sql.DataSource;
 
-import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -13,10 +13,12 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import com.htdong.client.util.ConfInitUtil;
 
 @Configuration
 @EnableTransactionManagement(proxyTargetClass = true)
+@MapperScan(basePackages = { "com.htdong.dal.mapper" })
 public class DalConfiguration {
 
     @Bean(initMethod = "init")
@@ -42,9 +44,9 @@ public class DalConfiguration {
     }
 
     @Bean
-    public SqlSessionFactoryBean sqlSessionFactoryBean(
+    public MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean(
             @Autowired @Qualifier(value = "dataSource") DataSource dataSource) throws IOException {
-        SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
+        MybatisSqlSessionFactoryBean bean = new MybatisSqlSessionFactoryBean();
         bean.setDataSource(dataSource);
         bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:sqlmap/*.xml"));
         return bean;

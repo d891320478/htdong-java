@@ -19,9 +19,8 @@
 
     <properties>
         <spring-boot-version>2.6.6</spring-boot-version>
-        <spring-version>5.3.19</spring-version>
+        <spring-version>5.3.20</spring-version>
         <jackson-version>2.13.2</jackson-version>
-        <client-version>1.0.0-SNAPSHOT</client-version>
         <common-version>1.0.0-SNAPSHOT</common-version>
     </properties>
 
@@ -31,7 +30,7 @@
             <dependency>
                 <groupId>com.htdong</groupId>
                 <artifactId>client</artifactId>
-                <version>${client-version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.htdong</groupId>
@@ -88,19 +87,19 @@
                 <version>1.2.8</version>
             </dependency>
             <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>mybatis-spring</artifactId>
-                <version>2.0.6</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>mybatis</artifactId>
-                <version>3.5.6</version>
-            </dependency>
-            <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>8.0.28</version>
+                <version>8.0.29</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus</artifactId>
+                <version>3.5.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-annotation</artifactId>
+                <version>3.5.1</version>
             </dependency>
             <!-- javax -->
             <dependency>
