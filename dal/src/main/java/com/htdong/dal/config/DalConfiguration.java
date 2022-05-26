@@ -48,6 +48,7 @@ public class DalConfiguration {
             @Autowired @Qualifier(value = "dataSource") DataSource dataSource) throws IOException {
         MybatisSqlSessionFactoryBean bean = new MybatisSqlSessionFactoryBean();
         bean.setDataSource(dataSource);
+        bean.set
         bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:sqlmap/*.xml"));
         return bean;
     }
