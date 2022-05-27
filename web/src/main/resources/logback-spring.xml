@@ -98,11 +98,6 @@
         <appender-ref ref="SQL" />
     </logger>
 
-    <logger name="access" additivity="false">
-        <level value="info" />
-        <appender-ref ref="ACCESS_LOG" />
-    </logger>
-
     <root>
         <level value="${loglevel}" />
         <appender-ref ref="PROJECT" />
