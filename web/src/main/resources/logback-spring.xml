@@ -88,7 +88,12 @@
         </layout>
     </appender>
 
-    <logger name="com.shinemo.htdong.mapper" additivity="false">
+    <logger name="com.htdong.dal.mapper" additivity="false">
+        <level value="debug" />
+        <appender-ref ref="SQL" />
+    </logger>
+    
+    <logger name="org.apache.ibatis" additivity="false">
         <level value="debug" />
         <appender-ref ref="SQL" />
     </logger>
