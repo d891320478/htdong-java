@@ -27,7 +27,7 @@ public class ShortUrlServiceImpl implements ShortUrlService {
         QueryWrapper<ShortUrlDO> query = new QueryWrapper<>();
         query.eq(ShortUrlDO.DB_FIELD_SHORT_PATH, shortPath);
         ShortUrlDO domain = shortUrlMapper.selectOne(query);
-        return domain == null ? null : domain.getShortPath();
+        return domain == null ? null : domain.getRealUrl();
     }
 
     @Override
