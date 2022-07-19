@@ -3,7 +3,7 @@
 
     <property name="loglevel" value="debug" />
     <springProperty scope="context" name="logPath" source="log.path"/>
-    <property name="logPattern" value="%level %thread %d{yyyy-MM-dd HH:mm:ss.SSS} %class{35}.%method - %msg%n" />
+    <property name="logPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread] %class{35}.%method:%line - %msg%n" />
 
     <appender name="ERROR_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${logPath}/error.log</file>
