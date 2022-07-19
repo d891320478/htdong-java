@@ -1,4 +1,4 @@
-package com.htdong.client.domain.db;
+package com.htdong.common;
 
 import java.time.LocalDateTime;
 

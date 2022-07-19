@@ -1,6 +1,7 @@
 package com.htdong.client.domain.db;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.htdong.common.SuperDbDO;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
