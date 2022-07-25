@@ -1,7 +1,5 @@
 package com.htdong.core.service.impl;
 
-import java.util.Random;
-
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
