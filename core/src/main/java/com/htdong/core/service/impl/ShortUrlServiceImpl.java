@@ -39,12 +39,14 @@ public class ShortUrlServiceImpl implements ShortUrlService {
     }
 
     private static String randomShortPath() {
-        Random random = new Random();
-        int len = random.nextInt(3) + 5;
+        long t = System.currentTimeMillis() / 10;
+        String s1 = (t / 10000) + "";
+        String s2 = (t % 10000) + "";
+        t = Long.parseLong(s2 + s1);
         StringBuilder sb = new StringBuilder();
-        while (len > 0) {
-            --len;
-            sb.append(BASE62[random.nextInt(BASE62.length)]);
+        while (t != 0) {
+            sb.append(BASE62[(int)(t % BASE62.length)]);
+            t /= BASE62.length;
         }
         return sb.toString();
     }
