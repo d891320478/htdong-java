@@ -35,7 +35,7 @@ public class DbInit {
                 sb.append(line + "\n");
             }
         }
-        String[] s = sb.toString().split(";\n");
+        String[] s = sb.toString().split("-----");
         for (String i : s) {
             if (StringUtils.isNotBlank(i)) {
                 stat.addBatch(i);
