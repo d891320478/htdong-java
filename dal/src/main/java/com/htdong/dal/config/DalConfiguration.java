@@ -7,6 +7,7 @@ import javax.sql.DataSource;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
@@ -16,19 +17,25 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.config.GlobalConfig;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
-import com.htdong.client.util.ConfInitUtil;
 
 @Configuration
 @EnableTransactionManagement(proxyTargetClass = true)
-@MapperScan(basePackages = { "com.htdong.dal.mapper" })
+@MapperScan(basePackages = {"com.htdong.dal.mapper"})
 public class DalConfiguration {
+
+    @Value("${jdbc.url}")
+    private String jdbcUrl;
+    @Value("${jdbc.user}")
+    private String jdbcUser;
+    @Value("${jdbc.password}")
+    private String jdbcPassword;
 
     @Bean(initMethod = "init")
     public DruidDataSource dataSource() {
         DruidDataSource dataSource = new DruidDataSource();
-        dataSource.setUrl(ConfInitUtil.get("jdbc.url"));
-        dataSource.setUsername(ConfInitUtil.get("jdbc.user"));
-        dataSource.setPassword(ConfInitUtil.get("jdbc.password"));
+        dataSource.setUrl(jdbcUrl);
+        dataSource.setUsername(jdbcUser);
+        dataSource.setPassword(jdbcPassword);
         dataSource.setInitialSize(5);
         dataSource.setMinIdle(5);
         dataSource.setMaxActive(50);
@@ -47,7 +54,7 @@ public class DalConfiguration {
 
     @Bean
     public MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean(
-            @Autowired @Qualifier(value = "dataSource") DataSource dataSource) throws IOException {
+        @Autowired @Qualifier(value = "dataSource") DataSource dataSource) throws IOException {
         MybatisSqlSessionFactoryBean bean = new MybatisSqlSessionFactoryBean();
         bean.setDataSource(dataSource);
         GlobalConfig.DbConfig dbConfig = new GlobalConfig.DbConfig();
