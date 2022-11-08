@@ -53,10 +53,9 @@ public class DalConfiguration {
     }
 
     @Bean
-    public MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean(
-        @Autowired @Qualifier(value = "dataSource") DataSource dataSource) throws IOException {
+    public MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean() throws IOException {
         MybatisSqlSessionFactoryBean bean = new MybatisSqlSessionFactoryBean();
-        bean.setDataSource(dataSource);
+        bean.setDataSource(dataSource());
         GlobalConfig.DbConfig dbConfig = new GlobalConfig.DbConfig();
         dbConfig.setIdType(IdType.AUTO);
         GlobalConfig globalConfig = new GlobalConfig();
