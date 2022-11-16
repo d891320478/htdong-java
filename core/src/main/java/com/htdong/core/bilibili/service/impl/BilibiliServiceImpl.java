@@ -60,5 +60,4 @@ public class BilibiliServiceImpl implements BilibiliService {
             return ApiResult.fail(502, "exception");
         }
     }
-
 }
