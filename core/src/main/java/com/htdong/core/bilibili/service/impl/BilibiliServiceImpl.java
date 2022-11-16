@@ -5,6 +5,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,11 @@ public class BilibiliServiceImpl implements BilibiliService {
 
     private static final String BILIBILI_API = "https://api.live.bilibili.com";
     private static final String BILIBILI_LIVE_ROOM_INIT = "/room/v1/Room/room_init?id=%s";
+
+    @Value("${bilibili.ak}")
+    private String ak;
+    @Value("${bilibili.sk}")
+    private String sk;
 
     @Override
     public ApiResult<Boolean> startLive(long roomId) {
