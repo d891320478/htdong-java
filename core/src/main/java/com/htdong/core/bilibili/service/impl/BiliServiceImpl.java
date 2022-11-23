@@ -5,7 +5,6 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -13,23 +12,19 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.htdong.client.domain.bilibili.RoomInitDTO;
 import com.htdong.client.domain.result.ApiResult;
 import com.htdong.common.util.JacksonUtil;
-import com.htdong.core.bilibili.service.BilibiliService;
+import com.htdong.core.bilibili.service.BiliService;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@Service("bilibiliService")
-public class BilibiliServiceImpl implements BilibiliService {
+@Service("biliService")
+public class BiliServiceImpl implements BiliService {
 
-    private static final TypeReference<ApiResult<RoomInitDTO>> ROOM_INIT_TYPE = new TypeReference<>() {};
+    private static final TypeReference<ApiResult<RoomInitDTO>> ROOM_INIT_TYPE = new TypeReference<>() {
+    };
 
     private static final String BILIBILI_API = "https://api.live.bilibili.com";
     private static final String BILIBILI_LIVE_ROOM_INIT = "/room/v1/Room/room_init?id=%s";
-
-    @Value("${bilibili.ak}")
-    private String ak;
-    @Value("${bilibili.sk}")
-    private String sk;
 
     @Override
     public ApiResult<Boolean> startLive(long roomId) {

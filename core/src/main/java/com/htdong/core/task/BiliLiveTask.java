@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import com.htdong.client.domain.result.ApiResult;
-import com.htdong.core.bilibili.service.BilibiliService;
+import com.htdong.core.bilibili.service.BiliService;
 
 @Component
 public class BiliLiveTask {
@@ -17,12 +17,12 @@ public class BiliLiveTask {
     private Long liveRoomId;
 
     @Resource
-    private BilibiliService bilibiliService;
+    private BiliService biliService;
 
     @Async
     @Scheduled(cron = "0 10 9 * * ?")
     public void checkStart() {
-        ApiResult<Boolean> rlt = bilibiliService.startLive(liveRoomId);
+        ApiResult<Boolean> rlt = biliService.startLive(liveRoomId);
         if (!rlt.isSuccess()) {
 
         } else if (!rlt.getData()) {

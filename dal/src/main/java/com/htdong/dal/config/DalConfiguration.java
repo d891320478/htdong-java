@@ -2,11 +2,7 @@ package com.htdong.dal.config;
 
 import java.io.IOException;
 
-import javax.sql.DataSource;
-
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +16,7 @@ import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 
 @Configuration
 @EnableTransactionManagement(proxyTargetClass = true)
-@MapperScan(basePackages = {"com.htdong.dal.mapper"})
+@MapperScan(basePackages = { "com.htdong.dal.mapper" })
 public class DalConfiguration {
 
     @Value("${jdbc.url}")
