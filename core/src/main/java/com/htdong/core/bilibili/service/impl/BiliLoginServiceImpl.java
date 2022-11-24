@@ -30,6 +30,10 @@ public class BiliLoginServiceImpl implements BiliLoginService {
     private String appKey;
     @Value("${bili.android.secret}")
     private String appSecret;
+    @Value("${bili.user.id}")
+    private String userId;
+    @Value("${bili.user.pwd}")
+    private String userPwd;
 
     @Override
     public ApiResult<?> login() {
