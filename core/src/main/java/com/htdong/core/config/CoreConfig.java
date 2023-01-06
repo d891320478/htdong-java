@@ -10,6 +10,9 @@ import org.springframework.context.annotation.Configuration;
 
 import com.htdong.client.conf.ConfigRegister;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Configuration
 public class CoreConfig {
 
@@ -21,9 +24,6 @@ public class CoreConfig {
 
     @PreDestroy
     public void preDestroy() {
-        System.out.println("==============================");
-        System.out.println(LocalDateTime.now());
-        System.out.println("app stop.");
-        System.out.println("==============================");
+        log.info("{} app stop.", LocalDateTime.now());
     }
 }
