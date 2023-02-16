@@ -17,7 +17,7 @@ import com.htdong.client.domain.result.ApiResult;
 import com.htdong.common.util.JacksonUtil;
 import com.htdong.core.bilibili.service.BiliService;
 
-@DubboService
+@DubboService(proxy = "bili")
 @Service("biliService")
 public class BiliServiceImpl implements BiliService {
 
