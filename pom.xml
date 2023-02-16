@@ -21,6 +21,7 @@
         <spring-boot-version>2.6.7</spring-boot-version>
         <spring-version>5.3.20</spring-version>
         <jackson-version>2.14.0</jackson-version>
+        <dubbo-version>3.2.0-beta.4</dubbo-version>
         <common-version>1.0.0-SNAPSHOT</common-version>
     </properties>
 
@@ -169,6 +170,19 @@
                 <groupId>com.fasterxml.jackson.datatype</groupId>
                 <artifactId>jackson-datatype-joda</artifactId>
                 <version>${jackson-version}</version>
+            </dependency>
+            <!-- dubbo -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-bom</artifactId>
+                <version>${dubbo-version}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-dependencies-zookeeper</artifactId>
+                <version>${dubbo-version}</version>
+                <type>pom</type>
             </dependency>
             <!-- 其它 -->
             <dependency>
