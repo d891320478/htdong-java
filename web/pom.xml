@@ -14,7 +14,6 @@
     <name>htdong-web</name>
 
     <dependencies>
-        <!-- 子项目 -->
         <dependency>
             <groupId>com.htdong</groupId>
             <artifactId>client</artifactId>
@@ -27,13 +26,19 @@
             <groupId>com.htdong</groupId>
             <artifactId>dal</artifactId>
         </dependency>
-        <!-- springboot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!-- spring -->
-        <!-- 其它 -->
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-dependencies-zookeeper</artifactId>
+            <type>pom</type>
+        </dependency>
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
