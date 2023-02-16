@@ -1,7 +1,6 @@
 package com.htdong.web.controller;
 
-import javax.annotation.Resource;
-
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +13,8 @@ import com.htdong.core.bilibili.service.BiliService;
 @RequestMapping("/test")
 public class TestController {
 
-    @Resource
+    // @Resource
+    @DubboReference(group = "bili")
     private BiliService biliService;
 
     @GetMapping("checkLive")
