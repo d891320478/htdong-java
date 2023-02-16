@@ -80,7 +80,6 @@ public class ConfigRegister implements BeanPostProcessor, ApplicationContextAwar
         return bean;
     }
 
-    // 注册到配置中心，如果有修改，返回修改的值，每5秒请求一次
     public void execute() {
         try {
             long updateTime = this.file.lastModified();
