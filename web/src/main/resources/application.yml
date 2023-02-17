@@ -1,3 +1,6 @@
+zookeeper:
+  address: zookeeper://127.0.0.1:2181
+
 dubbo:
   application:
     name: htdong-java
@@ -5,7 +8,9 @@ dubbo:
     name: dubbo
     port: -1
   registry:
-    address: zookeeper://127.0.0.1:2181
+    address: ${zookeeper.address}
+  config-center:
+    address: ${zookeeper.address}
 
 server:
   port: 9760
