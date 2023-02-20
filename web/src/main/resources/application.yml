@@ -11,6 +11,11 @@ dubbo:
     address: ${zookeeper.address}
   config-center:
     address: ${zookeeper.address}
+    group: htdong
+    namespace: htdong
+
+log:
+  path: /data/logs/htdong
 
 server:
   port: 9760
