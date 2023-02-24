@@ -6,7 +6,7 @@ zookeeper:
 
 dubbo:
   application:
-    name: htdong-java
+    name: htdong
     check: false
     dump.directory: ${log.path}
   protocol:
