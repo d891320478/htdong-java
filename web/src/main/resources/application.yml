@@ -17,7 +17,6 @@ dubbo:
   config-center:
     address: ${zookeeper.address}
     group: htdong
-    config-file: /dubbo/config/dubbo/dubbo.properties
     app-config-file: /dubbo/config/htdong/htdong.properties
 
 server:
