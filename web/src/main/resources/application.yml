@@ -1,3 +1,9 @@
+log:
+  path: /data/logs/htdong
+  
+zookeeper:
+  address: zookeeper://127.0.0.1:2181
+
 dubbo:
   application:
     name: htdong-java
@@ -12,14 +18,10 @@ dubbo:
     address: ${zookeeper.address}
     app-config-file: ${local.conf.file}
     group: htdong
-
-log:
-  path: /data/logs/htdong
+    config-file: /dubbo/config/dubbo/dubbo.properties
+    app-config-file: /dubbo/config/htdong/htdong.properties
 
 server:
   port: 9760
   servlet:
     context-path: /htdong
-    
-zookeeper:
-  address: zookeeper://127.0.0.1:2181
