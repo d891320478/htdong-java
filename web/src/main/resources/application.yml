@@ -16,7 +16,6 @@ dubbo:
     address: ${zookeeper.address}
   config-center:
     address: ${zookeeper.address}
-#    app-config-file: /dubbo/config/htdong/htdong.properties
 
 server:
   port: 9760
