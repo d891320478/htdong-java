@@ -119,6 +119,11 @@
         <level value="debug" />
         <appender-ref ref="SQL" />
     </logger>
+    
+    <logger name="httplog" additivity="false">
+        <level value="info" />
+        <appender-ref ref="HTTP_LOG" />
+    </logger>
 
     <root>
         <level value="${loglevel}" />

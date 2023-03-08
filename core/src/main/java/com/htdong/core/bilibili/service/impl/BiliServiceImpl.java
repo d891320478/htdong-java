@@ -21,7 +21,7 @@ import com.htdong.core.bilibili.service.BiliService;
 @Service("biliService")
 public class BiliServiceImpl implements BiliService {
 
-    private static final Logger httplog = LoggerFactory.getLogger("HTTP_LOG");
+    private static final Logger httplog = LoggerFactory.getLogger("httplog");
 
     private static final TypeReference<ApiResult<RoomInitDTO>> ROOM_INIT_TYPE = new TypeReference<>() {};
 
