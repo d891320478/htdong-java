@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @SpringBootApplication(scanBasePackages = {"com.htdong"})
 @EnableScheduling
-@EnableDubbo(scanBasePackages = {"com.htdong"})
+@EnableDubbo(scanBasePackages = {"com.htdong"}, multipleConfig = true)
 @Slf4j
 public class MainApplication {
 
