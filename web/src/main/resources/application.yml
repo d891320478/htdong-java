@@ -15,7 +15,8 @@ dubbo:
   registry:
     address: ${zookeeper.address}
   config-center:
-    address: ${zookeeper.address}
+    zookeeper:
+      address: ${zookeeper.address}
 
 server:
   port: 9760
