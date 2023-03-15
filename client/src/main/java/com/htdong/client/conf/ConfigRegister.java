@@ -98,7 +98,6 @@ public class ConfigRegister implements BeanPostProcessor, ApplicationContextAwar
     }
 
     /**
-     * 从配置中心取值
      * 
      * @param configKey
      * @return
