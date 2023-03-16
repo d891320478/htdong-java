@@ -128,6 +128,12 @@
                 <artifactId>spring-expression</artifactId>
                 <version>${spring-version}</version>
             </dependency>
+            <!-- springcloud -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-zookeeper-config</artifactId>
+                <version>3.1.3</version>
+            </dependency>
             <!-- DB -->
             <dependency>
                 <groupId>com.alibaba</groupId>

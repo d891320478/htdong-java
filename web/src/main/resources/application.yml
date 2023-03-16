@@ -1,19 +1,32 @@
 log:
   path: /data/logs/htdong
-  
+
 zookeeper:
-  address: zookeeper://127.0.0.1:2181
+  address: 127.0.0.1:2181
+
+spring:
+  application:
+    name: htdong
+  config:
+    import: 'optional:zookeeper:'
+  cloud:
+    zookeeper:
+      connect-string: ${zookeeper.address}
+      config:
+        enabled: true
+        root: config
+        profileSeparator: '-'
 
 dubbo:
   application:
-    name: htdong
+    name: ${spring.application.name}
     check: false
     dump.directory: ${log.path}
   protocol:
     name: dubbo
     port: -1
   registry:
-    address: ${zookeeper.address}
+    address: zookeeper://${zookeeper.address}
 
 server:
   port: 9760

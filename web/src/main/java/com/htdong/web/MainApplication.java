@@ -18,10 +18,10 @@ import lombok.extern.slf4j.Slf4j;
 public class MainApplication {
 
     public static void main(String[] args) {
-        Map<String, String> map = LocalConfigUtil.getMap(System.getProperty("local.conf.file"));
-        for (Map.Entry<String, String> iter : map.entrySet()) {
-            System.setProperty(iter.getKey(), iter.getValue());
-        }
+//        Map<String, String> map = LocalConfigUtil.getMap(System.getProperty("local.conf.file"));
+//        for (Map.Entry<String, String> iter : map.entrySet()) {
+//            System.setProperty(iter.getKey(), iter.getValue());
+//        }
         try {
             SpringApplication.run(MainApplication.class, args);
         } catch (Throwable e) {

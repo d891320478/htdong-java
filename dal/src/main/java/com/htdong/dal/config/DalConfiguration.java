@@ -23,7 +23,7 @@ public class DalConfiguration {
     private String jdbcUrl;
     @Value("${jdbc.user}")
     private String jdbcUser;
-    @Value("${jdbc.password}")
+    @Value("${jdbc.password:}")
     private String jdbcPassword;
 
     @Bean(initMethod = "init")
