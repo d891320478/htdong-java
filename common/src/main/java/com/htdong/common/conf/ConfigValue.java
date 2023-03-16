@@ -1,4 +1,4 @@
-package com.htdong.client.conf;
+package com.htdong.common.conf;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

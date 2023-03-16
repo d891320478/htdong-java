@@ -1,4 +1,4 @@
-package com.htdong.client.conf;
+package com.htdong.common.conf;
 
 import java.io.File;
 import java.lang.ref.WeakReference;
@@ -63,7 +63,7 @@ public class ConfigRegister implements BeanPostProcessor, ApplicationContextAwar
                         fieldMap.put(key, new LinkedList<>());
                     }
                     fieldMap.get(key)
-                            .add(new ObjectField(new WeakReference<Object>(bean), field, configValue.defaultValue()));
+                        .add(new ObjectField(new WeakReference<Object>(bean), field, configValue.defaultValue()));
                     try {
                         putConfigValue(bean, field, getValue(key, configValue.defaultValue()));
                     } catch (Exception e) {
@@ -125,7 +125,7 @@ public class ConfigRegister implements BeanPostProcessor, ApplicationContextAwar
     }
 
     private void putConfigValue(Object bean, Field field, String value)
-            throws IllegalArgumentException, IllegalAccessException {
+        throws IllegalArgumentException, IllegalAccessException {
         if (bean == null) {
             return;
         }
