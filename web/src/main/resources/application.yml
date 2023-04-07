@@ -16,6 +16,16 @@ spring:
         enabled: true
         root: config
         profileSeparator: '-'
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    database: 0
+    lettuce:
+      pool:
+        max-idle: 4
+        max-active: 16
+        min-idle: 2
 
 dubbo:
   application:
