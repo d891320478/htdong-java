@@ -1,13 +1,13 @@
 package com.htdong.core.service.impl;
 
-import javax.annotation.Resource;
-
 import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.htdong.client.domain.db.ShortUrlDO;
 import com.htdong.core.service.ShortUrlService;
 import com.htdong.dal.mapper.ShortUrlMapper;
+
+import jakarta.annotation.Resource;
 
 @Service("shortUrlService")
 public class ShortUrlServiceImpl implements ShortUrlService {
