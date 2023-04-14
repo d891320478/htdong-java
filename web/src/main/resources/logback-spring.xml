@@ -121,7 +121,7 @@
     </logger>
     
     <logger name="httplog" additivity="false">
-        <level value="info" />
+        <level value="debug" />
         <appender-ref ref="HTTP_LOG" />
     </logger>
 
