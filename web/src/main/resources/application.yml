@@ -35,7 +35,7 @@ dubbo:
     check: false
     dump.directory: ${log.path}
   protocol:
-    name: dubbo
+    name: tri
     port: -1
   registry:
     address: zookeeper://${zookeeper.address}
