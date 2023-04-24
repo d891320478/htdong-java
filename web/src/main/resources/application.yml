@@ -37,6 +37,9 @@ dubbo:
   protocol:
     name: tri
     port: -1
+#  provider:
+#    prefer-serialization: fastjson2
+#    serialization: fastjson2
   registry:
     address: zookeeper://${zookeeper.address}
 
