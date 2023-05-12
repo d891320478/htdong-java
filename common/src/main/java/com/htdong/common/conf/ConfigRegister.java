@@ -10,8 +10,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.StringUtils;
@@ -31,10 +32,15 @@ public class ConfigRegister implements BeanPostProcessor, ApplicationContextAwar
     private Long lastUpdateTime;
     private Map<String, List<ObjectField>> fieldMap = new ConcurrentHashMap<>();
     private ScheduledExecutorService pool;
-    // private ApplicationContext applicationContext;
 
     public void init() {
-        pool = Executors.newScheduledThreadPool(1);
+        pool = new ScheduledThreadPoolExecutor(1, new ThreadFactory() {
+
+            @Override
+            public Thread newThread(Runnable r) {
+                return new Thread(r, "config-register-");
+            }
+        });
         pool.scheduleAtFixedRate(() -> execute(), 0, 5, TimeUnit.SECONDS);
     }
 
@@ -45,9 +51,7 @@ public class ConfigRegister implements BeanPostProcessor, ApplicationContextAwar
     }
 
     @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        // this.applicationContext = applicationContext;
-    }
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {}
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {

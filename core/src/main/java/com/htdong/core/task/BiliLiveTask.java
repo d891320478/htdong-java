@@ -27,19 +27,12 @@ public class BiliLiveTask {
     @Scheduled(cron = "0 11 9 * * ?")
     public void checkStart() {
         ApiResult<Boolean> rlt = biliService.startLive(liveRoomId);
-        if (!rlt.isSuccess()) {
-            for (int i = 0; i < 10 && !rlt.isSuccess(); ++i) {
-                rlt = biliService.startLive(liveRoomId);
-            }
-        }
         if (rlt.isSuccess()) {
             if (!rlt.getData()) {
-                notStartLiveMapper.insert(new NotStartLiveDO(liveRoomId));
-            } else {
-
+                notStartLiveMapper.insert(new NotStartLiveDO(liveRoomId, null));
             }
         } else {
-
+            notStartLiveMapper.insert(new NotStartLiveDO(liveRoomId, "检查开播失败"));
         }
     }
 }

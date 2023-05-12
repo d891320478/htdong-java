@@ -4,6 +4,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
 
+/**
+ * 
+ * @author htdong
+ * @date 2023-05-12 14:24:55
+ */
 @Data
 public class RoomInitDTO {
     
@@ -12,10 +17,10 @@ public class RoomInitDTO {
     public static final int ROTATING = 2;
 
     @JsonProperty("room_id")
-    private long roomId;
-    private long uid;
+    private Long roomId;
+    private Long uid;
     @JsonProperty("live_time")
-    private long liveTime;
+    private Long liveTime;
     @JsonProperty("live_status")
-    private int liveStatus;
+    private Integer liveStatus;
 }
