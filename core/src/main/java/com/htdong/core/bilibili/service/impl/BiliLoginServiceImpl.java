@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.htdong.client.domain.bilibili.LoingKeyDTO;
-import com.htdong.client.domain.result.ApiResult;
+import com.htdong.common.domain.result.ApiResult;
 import com.htdong.common.util.JacksonUtil;
 import com.htdong.core.bilibili.service.BiliLoginService;
 

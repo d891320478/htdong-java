@@ -1,27 +1,18 @@
 package com.htdong.core.bilibili.service.impl;
 
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-
 import org.apache.dubbo.config.annotation.DubboService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.htdong.client.domain.bilibili.RoomInitDTO;
-import com.htdong.client.domain.result.ApiResult;
-import com.htdong.common.util.JacksonUtil;
+import com.htdong.common.domain.result.ApiResult;
+import com.htdong.common.domain.result.HttpResult;
+import com.htdong.common.util.HttpUtil;
 import com.htdong.core.bilibili.service.BiliService;
 
 @DubboService
 @Service("biliService")
 public class BiliServiceImpl implements BiliService {
-
-    private static final Logger httplog = LoggerFactory.getLogger("httplog");
 
     private static final TypeReference<ApiResult<RoomInitDTO>> ROOM_INIT_TYPE = new TypeReference<>() {};
 
@@ -38,23 +29,11 @@ public class BiliServiceImpl implements BiliService {
     }
 
     private ApiResult<RoomInitDTO> roomInit(long roomId) {
-        return apiServiceGet(String.format(BILIBILI_LIVE_ROOM_INIT, roomId), ROOM_INIT_TYPE);
-    }
-
-    private <T> ApiResult<T> apiServiceGet(String url, TypeReference<ApiResult<T>> type) {
-        url = BILIBILI_API + url;
-        HttpRequest req = HttpRequest.newBuilder().uri(URI.create(url)).build();
-        HttpClient client = HttpClient.newHttpClient();
-        try {
-            HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString());
-            httplog.info("url = {}, code = {}, res = {}.", url, response.statusCode(), response.body());
-            if (response.statusCode() == HttpStatus.OK.value()) {
-                return JacksonUtil.getObjectMapper().readValue(response.body(), type);
-            }
-            return ApiResult.fail(response.statusCode(), "bilibili api http error.");
-        } catch (Throwable e) {
-            httplog.error("url = {}", url, e);
-            return ApiResult.fail(502, "exception");
+        HttpResult<ApiResult<RoomInitDTO>> httpRlt =
+            HttpUtil.httpGet(BILIBILI_API + String.format(BILIBILI_LIVE_ROOM_INIT, roomId), ROOM_INIT_TYPE);
+        if (httpRlt.isSuccess()) {
+            return httpRlt.getData();
         }
+        return ApiResult.fail(httpRlt.getCode(), "bilibili api http error.");
     }
 }

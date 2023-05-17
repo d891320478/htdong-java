@@ -6,7 +6,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import com.htdong.client.domain.db.NotStartLiveDO;
-import com.htdong.client.domain.result.ApiResult;
+import com.htdong.common.domain.result.ApiResult;
 import com.htdong.core.bilibili.service.BiliService;
 import com.htdong.dal.mapper.NotStartLiveMapper;
 

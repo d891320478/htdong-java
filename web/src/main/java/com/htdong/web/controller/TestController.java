@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.htdong.client.domain.result.ApiResult;
+import com.htdong.common.domain.result.ApiResult;
 import com.htdong.core.bilibili.service.BiliService;
 
 @RestController

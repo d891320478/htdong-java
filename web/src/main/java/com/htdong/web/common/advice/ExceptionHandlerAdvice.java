@@ -3,7 +3,7 @@ package com.htdong.web.common.advice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.htdong.client.domain.result.ApiResult;
+import com.htdong.common.domain.result.ApiResult;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;

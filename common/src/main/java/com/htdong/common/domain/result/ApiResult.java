@@ -1,4 +1,4 @@
-package com.htdong.client.domain.result;
+package com.htdong.common.domain.result;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ApiResult<T> {
+public class ApiResult<T> implements CommonResult {
     private int code;
     private String msg;
     private String message;
@@ -34,7 +34,8 @@ public class ApiResult<T> {
     }
 
     public void setMsg(String msg) {
-        this.msg = this.message = msg;
+        this.msg = msg;
+        this.message = msg;
     }
 
     public void setMessage(String message) {
