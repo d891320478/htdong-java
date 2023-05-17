@@ -24,8 +24,8 @@ public class HttpUtil {
 
     private static final Logger HTTP_LOG = LoggerFactory.getLogger("httplog");
 
-    private static final HttpClient DEFAULT_CLIENT = HttpClient.newHttpClient();
     private static final Duration DEFAULT_TIMEOUT = Duration.ofSeconds(30);
+    private static final HttpClient DEFAULT_CLIENT = HttpClient.newBuilder().connectTimeout(DEFAULT_TIMEOUT).build();
 
     public static final <T> HttpResult<T> httpGet(String url, TypeReference<T> type) {
         return httpGet(url, null, null, DEFAULT_TIMEOUT, type, DEFAULT_CLIENT);
