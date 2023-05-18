@@ -31,6 +31,10 @@ public class HttpUtil {
         return httpGet(url, null, null, DEFAULT_TIMEOUT, type, DEFAULT_CLIENT);
     }
 
+    public static final <T> HttpResult<T> httpGet(String url, Map<String, String> params, TypeReference<T> type) {
+        return httpGet(url, params, null, DEFAULT_TIMEOUT, type, DEFAULT_CLIENT);
+    }
+
     public static final <T> HttpResult<T> httpGet(String url, Map<String, String> params, Map<String, String> headers,
         Duration timeout, TypeReference<T> type, HttpClient client) {
         long start = System.currentTimeMillis();
