@@ -70,7 +70,7 @@ public class AccessFilter implements Filter {
         Enumeration<String> header = request.getHeaderNames();
         while (header.hasMoreElements()) {
             String key = header.nextElement();
-            sb.append("\n        ").append(key).append(" = ").append(request.getHeaders(key)).append("\n");
+            sb.append("\n        ").append(key).append(" = ").append(request.getHeaders(key));
         }
         sb.append("\n    PARAMS:");
         Map<String, String[]> map = request.getParameterMap();
