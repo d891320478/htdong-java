@@ -16,6 +16,6 @@ public class ExceptionHandlerAdvice {
     public ApiResult<?> globalExceptionHandler(HttpServletRequest request, Exception e) {
         String uri = request.getRequestURI();
         log.error("globalExceptionHandler - uri:{},ex:", uri, e);
-        return ApiResult.fail(500, "系统错误！");
+        return ApiResult.fail(502, "系统错误！");
     }
 }
