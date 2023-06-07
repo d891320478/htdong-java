@@ -13,6 +13,8 @@ public class SysController {
     public String checkstatus(HttpServletRequest request) {
         ServletContext context = request.getServletContext();
         System.out.println(System.identityHashCode(context));
+        System.out.println(context.getContextPath());
+        System.out.println(request.getContextPath());
         return "success";
     }
 }

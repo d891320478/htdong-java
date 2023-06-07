@@ -23,6 +23,8 @@ public class TestController {
     public ResponseEntity<ApiResult<Boolean>> checkLive(long roomId, HttpServletRequest request) {
         ServletContext context = request.getServletContext();
         System.out.println(System.identityHashCode(context));
+        System.out.println(context.getContextPath());
+        System.out.println(request.getContextPath());
         return ResponseEntity.ok(biliService.startLive(roomId));
     }
 }
