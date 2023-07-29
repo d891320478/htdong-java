@@ -38,7 +38,7 @@ public class TestController {
         StringBuilder sb = new StringBuilder();
         for (AllGuardDTO iter : rlt.getData()) {
             sb.append(iter.getUid()).append(" ").append(iter.getUserName()).append(" ")
-                .append(GuardLevelEnum.getById(iter.getGuardLevel())).append("<br/>");
+                .append(GuardLevelEnum.getById(iter.getGuardLevel()).getName()).append("<br/>");
         }
         return ResponseEntity.ok(sb.toString());
     }
