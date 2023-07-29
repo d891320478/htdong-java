@@ -57,13 +57,13 @@ public class BiliServiceImpl implements BiliService {
         for (int i = 1; i <= rlt.getInfo().getPage(); ++i) {
             httpRlt = HttpUtil.httpGet(BILIBILI_API + String.format(BILIBILI_LIVE_ROOM_GUARD, i), ROOM_GUARD_TYPE);
             rlt = httpRlt.getData().getData();
-            for (GuardListDTO.ListDTO iter : rlt.getList()) {
+            for (GuardListDTO.ListDTO iter : rlt.getTop3()) {
                 if (!uidSet.contains(iter.getUid())) {
                     uidSet.add(iter.getUid());
                     list.add(new AllGuardDTO(iter.getUid(), iter.getUsername(), iter.getGuardLevel()));
                 }
             }
-            for (GuardListDTO.ListDTO iter : rlt.getTop3()) {
+            for (GuardListDTO.ListDTO iter : rlt.getList()) {
                 if (!uidSet.contains(iter.getUid())) {
                     uidSet.add(iter.getUid());
                     list.add(new AllGuardDTO(iter.getUid(), iter.getUsername(), iter.getGuardLevel()));
