@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -17,7 +16,6 @@ import com.htdong.common.domain.result.HttpResult;
 import com.htdong.common.util.HttpUtil;
 import com.htdong.core.bilibili.service.BiliService;
 
-@DubboService
 @Service("biliService")
 public class BiliServiceImpl implements BiliService {
 

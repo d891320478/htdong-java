@@ -2,7 +2,6 @@ package com.htdong.web.controller;
 
 import java.util.List;
 
-import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +12,7 @@ import com.htdong.client.domain.enums.GuardLevelEnum;
 import com.htdong.common.domain.result.ApiResult;
 import com.htdong.core.bilibili.service.BiliService;
 
+import jakarta.annotation.Resource;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -20,7 +20,7 @@ import jakarta.servlet.http.HttpServletRequest;
 @RequestMapping("/test")
 public class TestController {
 
-    @DubboReference
+    @Resource
     private BiliService biliService;
 
     @GetMapping("checkLive")
