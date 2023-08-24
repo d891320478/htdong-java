@@ -36,8 +36,8 @@ public class TestController {
     }
 
     @GetMapping("getGuardList")
-    public ResponseEntity<String> getGuardList() {
-        ApiResult<List<AllGuardDTO>> rlt = biliService.getAllGuard();
+    public ResponseEntity<String> getGuardList(long roomId) {
+        ApiResult<List<AllGuardDTO>> rlt = biliService.getAllGuard(roomId);
         StringBuilder sb = new StringBuilder();
         for (AllGuardDTO iter : rlt.getData()) {
             sb.append(iter.getUid()).append(" ").append(iter.getUserName()).append(" ")

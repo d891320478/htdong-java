@@ -35,7 +35,7 @@ public class BiliGuardTask {
     @Async
     @Scheduled(cron = "0 0 1 * * ?")
     public void execute() {
-        ApiResult<List<AllGuardDTO>> rlt = biliService.getAllGuard();
+        ApiResult<List<AllGuardDTO>> rlt = biliService.getAllGuard(liveRoomId);
         for (AllGuardDTO iter : rlt.getData()) {
             QueryWrapper<GuardDO> q = new QueryWrapper<>();
             q.eq(GuardDO.DB_FIELD_BILI_UID, iter.getUid());

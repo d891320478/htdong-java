@@ -9,5 +9,5 @@ public interface BiliService {
 
     ApiResult<Boolean> startLive(long roomId);
 
-    ApiResult<List<AllGuardDTO>> getAllGuard();
+    ApiResult<List<AllGuardDTO>> getAllGuard(long roomId);
 }
