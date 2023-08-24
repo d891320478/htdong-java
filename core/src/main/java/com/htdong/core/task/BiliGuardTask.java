@@ -58,7 +58,7 @@ public class BiliGuardTask {
             }
         }
         QueryWrapper<GuardDO> q = new QueryWrapper<>();
-        q.lt(GuardDO.DB_FIELD_GMT_MODIFIED, LocalDateTime.now().minusDays(3));
+        q.lt(GuardDO.DB_FIELD_GMT_MODIFIED, LocalDateTime.now().minusDays(2));
         guardMapper.delete(q);
     }
 }
