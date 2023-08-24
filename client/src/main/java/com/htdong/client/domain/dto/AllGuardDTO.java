@@ -17,6 +17,8 @@ public class AllGuardDTO {
     private String userName;
     /**
      * 1总督2提督3舰长
+     * 
+     * @see com.htdong.client.domain.enums.GuardLevelEnum
      */
     private Integer guardLevel;
 }

@@ -11,6 +11,7 @@ import com.htdong.client.domain.dto.AllGuardDTO;
 import com.htdong.client.domain.enums.GuardLevelEnum;
 import com.htdong.common.domain.result.ApiResult;
 import com.htdong.core.bilibili.service.BiliService;
+import com.htdong.core.task.BiliGuardTask;
 
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletContext;
@@ -22,6 +23,8 @@ public class TestController {
 
     @Resource
     private BiliService biliService;
+    @Resource
+    private BiliGuardTask biliGuardTask;
 
     @GetMapping("checkLive")
     public ResponseEntity<ApiResult<Boolean>> checkLive(long roomId, HttpServletRequest request) {
@@ -41,5 +44,11 @@ public class TestController {
                 .append(GuardLevelEnum.getById(iter.getGuardLevel()).getName()).append("<br/>");
         }
         return ResponseEntity.ok(sb.toString());
+    }
+
+    @GetMapping("guardTask")
+    public ResponseEntity<String> guardTask() {
+        biliGuardTask.execute();
+        return ResponseEntity.ok("success");
     }
 }
