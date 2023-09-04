@@ -17,12 +17,12 @@ import lombok.extern.slf4j.Slf4j;
 public class ShellServiceImpl implements ShellService {
 
     @Override
-    public void syncExecute(String command) {
-        ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
+    public void syncExecuteStartBiliHttp() {
+        ProcessBuilder pb = new ProcessBuilder("bash", "-c", "/root/software/startBiliHttp/t.sh");
         try {
             pb.start();
         } catch (IOException e) {
-            log.error("{}", command, e);
+            log.error("", e);
         }
     }
 }

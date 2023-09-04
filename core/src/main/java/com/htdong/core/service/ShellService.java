@@ -6,5 +6,5 @@ package com.htdong.core.service;
  */
 public interface ShellService {
 
-    void syncExecute(String command);
+    void syncExecuteStartBiliHttp();
 }
