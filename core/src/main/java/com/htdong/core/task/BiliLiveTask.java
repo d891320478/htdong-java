@@ -24,7 +24,7 @@ public class BiliLiveTask {
     private NotStartLiveMapper notStartLiveMapper;
 
     @Async
-    @Scheduled(cron = "0 11 9 * * ?")
+    @Scheduled(cron = "0 16 9 * * ?")
     public void checkStart() {
         ApiResult<Boolean> rlt = biliService.startLive(liveRoomId);
         if (rlt.isSuccess()) {
