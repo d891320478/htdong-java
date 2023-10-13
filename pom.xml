@@ -18,10 +18,10 @@
     </modules>
 
     <properties>
-        <spring-boot-version>3.0.5</spring-boot-version>
+        <spring-boot-version>3.0.7</spring-boot-version>
         <spring-version>6.0.8</spring-version>
         <spring-cloud-version>4.0.0</spring-cloud-version>
-        <tomcat-version>10.1.7</tomcat-version>
+        <tomcat-version>10.1.8</tomcat-version>
         <jackson-version>2.14.0</jackson-version>
         <dubbo-version>3.2.0</dubbo-version>
         <common-version>1.0.0-SNAPSHOT</common-version>
@@ -224,7 +224,7 @@
             <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
-                <version>4.1.89.Final</version>
+                <version>4.1.94.Final</version>
             </dependency>
             <!-- dubbo -->
             <dependency>
@@ -255,7 +255,7 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>31.1-jre</version>
+                <version>32.0.0</version>
             </dependency>
             <!-- 其它 -->
             <dependency>
