@@ -2,6 +2,7 @@ package com.htdong.core.task;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -65,7 +66,8 @@ public class BiliGuardTask {
         }
         // 删除过期舰长移到历史表
         QueryWrapper<GuardDO> q = new QueryWrapper<>();
-        q.lt(GuardDO.DB_FIELD_GMT_MODIFIED, LocalDateTime.now());
+        LocalDateTime today = LocalDateTime.of(LocalDate.now(), LocalTime.MIN); 
+        q.lt(GuardDO.DB_FIELD_GMT_MODIFIED, today);
         List<GuardDO> list = guardMapper.selectList(q);
         for (GuardDO iter : list) {
             GuardHistoryDO history = new GuardHistoryDO();
