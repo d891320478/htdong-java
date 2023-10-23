@@ -1,5 +1,7 @@
 package com.htdong.common.util;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.fasterxml.jackson.core.json.JsonReadFeature;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,5 +18,16 @@ public class JacksonUtil {
         objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         objectMapper.registerModule(new JavaTimeModule());
         return objectMapper;
+    }
+    
+    public static <T> T toObject(String json, Class<T> type) {
+        if (StringUtils.isBlank(json)) {
+            return null;
+        }
+        try {
+            return getObjectMapper().readValue(json, type);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
