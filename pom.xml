@@ -20,12 +20,13 @@
 	</modules>
 
 	<properties>
+	    <dubbo-version>3.2.0</dubbo-version>
+		<jackson-version>2.14.0</jackson-version>
+		<protobuf-version>3.25.0</protobuf-version>
 		<spring-boot-version>3.0.7</spring-boot-version>
 		<spring-version>6.0.8</spring-version>
 		<spring-cloud-version>4.0.0</spring-cloud-version>
 		<tomcat-version>10.1.8</tomcat-version>
-		<jackson-version>2.14.0</jackson-version>
-		<dubbo-version>3.2.0</dubbo-version>
 		<common-version>1.0.0-SNAPSHOT</common-version>
 	</properties>
 
@@ -253,11 +254,21 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
+			<dependency>
+				<groupId>org.apache.dubbo</groupId>
+				<artifactId>dubbo-serialization-protobuf</artifactId>
+				<version>2.7.23</version>
+			</dependency>
 			<!-- google -->
 			<dependency>
 				<groupId>com.google.protobuf</groupId>
 				<artifactId>protobuf-java</artifactId>
-				<version>3.21.7</version>
+				<version>${protobuf-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.protobuf</groupId>
+				<artifactId>protobuf-java-util</artifactId>
+				<version>${protobuf-version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.google.guava</groupId>
@@ -275,6 +286,11 @@
 				<artifactId>lombok</artifactId>
 				<version>1.18.22</version>
 			</dependency>
+			<dependency>
+				<groupId>org.yaml</groupId>
+				<artifactId>snakeyaml</artifactId>
+				<version>1.33</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -288,6 +304,13 @@
 				<filtering>true</filtering>
 			</resource>
 		</resources>
+		<extensions>
+			<extension>
+				<groupId>kr.motd.maven</groupId>
+				<artifactId>os-maven-plugin</artifactId>
+				<version>1.7.1</version>
+			</extension>
+		</extensions>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -297,6 +320,35 @@
 					<encoding>UTF-8</encoding>
 					<release>17</release>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.xolstice.maven.plugins</groupId>
+				<artifactId>protobuf-maven-plugin</artifactId>
+				<version>0.6.1</version>
+				<configuration>
+					<protocArtifact>
+						com.google.protobuf:protoc:3.25.0:exe:${os.detected.classifier}</protocArtifact>
+					<outputDirectory>src/main/java</outputDirectory>
+					<clearOutputDirectory>false</clearOutputDirectory>
+					<protocPlugins>
+						<protocPlugin>
+							<id>dubbo</id>
+							<groupId>org.apache.dubbo</groupId>
+							<artifactId>dubbo-compiler</artifactId>
+							<version>0.0.2</version>
+							<mainClass>
+								org.apache.dubbo.gen.dubbo.Dubbo3Generator</mainClass>
+						</protocPlugin>
+					</protocPlugins>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+							<goal>test-compile</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

@@ -37,6 +37,7 @@ dubbo:
   protocol:
     name: tri
     port: -1
+    serialization: protobuf
   registry:
     address: zookeeper://${zookeeper.address}
 

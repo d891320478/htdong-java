@@ -1,1 +1,1 @@
-mvn clean package -Dmaven.test.skip=true -U
+mvn clean package -Dprotoc.skip=true -Dmaven.test.skip=true -U
