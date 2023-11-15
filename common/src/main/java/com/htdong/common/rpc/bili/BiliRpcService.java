@@ -1,11 +1,14 @@
-package com.htdong.common.rpc.bili;
+    package com.htdong.common.rpc.bili;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.atomic.AtomicBoolean;
 
-@jakarta.annotation.Generated(value = "by Dubbo generator", comments = "Source: bili.proto")
+@javax.annotation.Generated(
+value = "by Dubbo generator",
+comments = "Source: bili.proto")
 public interface BiliRpcService {
-    static final String JAVA_SERVICE_NAME = "com.htdong.common.rpc.bili.BiliRpcService";
-    static final String SERVICE_NAME = ".BiliRpcService";
+static final String JAVA_SERVICE_NAME = "com.htdong.common.rpc.bili.BiliRpcService";
+static final String SERVICE_NAME = ".BiliRpcService";
 
     // FIXME, initialize Dubbo3 stub when interface loaded, thinking of new ways doing this.
     static final boolean inited = BiliRpcServiceDubbo.init();
@@ -13,5 +16,6 @@ public interface BiliRpcService {
     com.google.protobuf.BoolValue roomCanUseServer(com.google.protobuf.Int64Value request);
 
     CompletableFuture<com.google.protobuf.BoolValue> roomCanUseServerAsync(com.google.protobuf.Int64Value request);
+
 
 }
