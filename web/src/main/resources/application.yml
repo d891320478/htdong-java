@@ -2,7 +2,7 @@ log:
   path: /data/logs/htdong
 
 zookeeper:
-  address: 127.0.0.1:2181
+  address: zookeeper.server.net:2181
 
 spring:
   application:
@@ -18,7 +18,7 @@ spring:
         profileSeparator: '-'
   data:
     redis:
-      host: 127.0.0.1
+      host: redis.server.net
       port: 6379
       password:
       database: 0
