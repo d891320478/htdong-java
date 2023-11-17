@@ -2,7 +2,7 @@ package com.htdong.common.rpc.bili;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-@jakarta.annotation.Generated(value = "by Dubbo generator", comments = "Source: bili.proto")
+@javax.annotation.Generated(value = "by Dubbo generator", comments = "Source: bili.proto")
 public final class BiliRpcServiceDubbo {
     private static final AtomicBoolean registered = new AtomicBoolean();
 

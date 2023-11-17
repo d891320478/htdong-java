@@ -2,7 +2,7 @@ package com.htdong.common.rpc.bili;
 
 import java.util.concurrent.CompletableFuture;
 
-@jakarta.annotation.Generated(value = "by Dubbo generator", comments = "Source: bili.proto")
+@javax.annotation.Generated(value = "by Dubbo generator", comments = "Source: bili.proto")
 public interface BiliRpcService {
     static final String JAVA_SERVICE_NAME = "com.htdong.common.rpc.bili.BiliRpcService";
     static final String SERVICE_NAME = ".BiliRpcService";
