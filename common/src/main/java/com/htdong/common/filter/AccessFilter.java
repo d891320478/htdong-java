@@ -43,7 +43,6 @@ public class AccessFilter implements Filter {
         long during = System.nanoTime() - start;
         int status = response.getStatus();
         logger.info(parseHttpRequest(request, during) + "\nstatus:" + status);
-
     }
 
     public static Cookie getCookie(String name, Cookie[] cookies) {

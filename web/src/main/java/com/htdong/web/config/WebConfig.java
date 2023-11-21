@@ -17,7 +17,7 @@ import com.htdong.common.filter.AccessFilter;
 public class WebConfig {
 
     @Bean
-    public FilterRegistrationBean<AccessFilter> logFilterRegister() {
+    FilterRegistrationBean<AccessFilter> logFilterRegister() {
         FilterRegistrationBean<AccessFilter> filterRegistrationBean = new FilterRegistrationBean<>();
         AccessFilter loggerFilter = new AccessFilter();
         filterRegistrationBean.setFilter(loggerFilter);
