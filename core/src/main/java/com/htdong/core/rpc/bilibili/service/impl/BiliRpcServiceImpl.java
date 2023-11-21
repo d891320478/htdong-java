@@ -17,7 +17,7 @@ import jakarta.annotation.Resource;
  * @author dht31261
  * @date 2023年11月14日 下午11:51:39
  */
-@DubboService(group="bili")
+@DubboService(group="bili", interfaceClass = BiliRpcService.class)
 public class BiliRpcServiceImpl implements BiliRpcService {
 
     @Resource
