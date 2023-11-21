@@ -16,7 +16,7 @@ import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 
 @Configuration
 @EnableTransactionManagement(proxyTargetClass = true)
-@MapperScan(basePackages = { "com.htdong.dal.mapper" })
+@MapperScan(basePackages = {"com.htdong.dal.mapper"})
 public class DalConfiguration {
 
     @Value("${jdbc.url}")
@@ -27,7 +27,7 @@ public class DalConfiguration {
     private String jdbcPassword;
 
     @Bean(initMethod = "init")
-    public DruidDataSource dataSource() {
+    DruidDataSource dataSource() {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(jdbcUrl);
         dataSource.setUsername(jdbcUser);
@@ -49,7 +49,7 @@ public class DalConfiguration {
     }
 
     @Bean
-    public MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean() throws IOException {
+    MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean() throws IOException {
         MybatisSqlSessionFactoryBean bean = new MybatisSqlSessionFactoryBean();
         bean.setDataSource(dataSource());
         GlobalConfig.DbConfig dbConfig = new GlobalConfig.DbConfig();
