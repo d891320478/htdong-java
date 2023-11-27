@@ -55,6 +55,10 @@
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+		</dependency>
 		<!-- javax -->
 		<dependency>
 			<groupId>jakarta.annotation</groupId>
