@@ -24,9 +24,9 @@
 		<jackson-version>2.14.0</jackson-version>
 		<mybatis-plus-version>3.5.4.1</mybatis-plus-version>
 		<protobuf-version>3.25.0</protobuf-version>
-		<spring-boot-version>3.0.7</spring-boot-version>
+		<spring-boot-version>3.1.5</spring-boot-version>
 		<spring-version>6.0.8</spring-version>
-		<spring-cloud-version>4.0.0</spring-cloud-version>
+		<spring-cloud-version>4.0.1</spring-cloud-version>
 		<tomcat-version>10.1.8</tomcat-version>
 		<common-version>1.0.0-SNAPSHOT</common-version>
 	</properties>
