@@ -27,9 +27,9 @@ public final class BiliRpcServiceProto {
       "\n\nbili.proto\032\036google/protobuf/wrappers.p" +
       "roto2_\n\016BiliRpcService\022M\n\020RoomCanUseServ" +
       "er\022\033.google.protobuf.Int64Value\032\032.google" +
-      ".protobuf.BoolValue\"\000B=\n\032com.htdong.comm" +
-      "on.rpc.biliB\023BiliRpcServiceProtoP\001\242\002\007DEM" +
-      "OSRVb\006proto3"
+      ".protobuf.BoolValue\"\000BF\n\032com.htdong.comm" +
+      "on.rpc.biliB\023BiliRpcServiceProtoP\001Z\007./;b" +
+      "ili\242\002\007DEMOSRVb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
