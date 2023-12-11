@@ -290,7 +290,7 @@
 			<dependency>
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
-				<version>1.18.22</version>
+				<version>1.18.30</version>
 			</dependency>
 			<dependency>
 				<groupId>org.yaml</groupId>
@@ -324,7 +324,7 @@
 				<version>3.11.0</version>
 				<configuration>
 					<encoding>UTF-8</encoding>
-					<release>17</release>
+					<release>21</release>
 				</configuration>
 			</plugin>
 			<plugin>
