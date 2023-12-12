@@ -71,11 +71,11 @@ public class AccessFilter implements Filter {
             String key = header.nextElement();
             sb.append("\n        ").append(key).append(" = ").append(request.getHeaders(key));
         }
-        sb.append("\n    PARAMS:");
+        sb.append("\n    PARAMS:\n");
         Map<String, String[]> map = request.getParameterMap();
         for (String name : map.keySet()) {
             String[] values = map.get(name);
-            sb.append("\n        ").append(name).append(" = ").append(Arrays.toString(values)).append("\n");
+            sb.append("        ").append(name).append(" = ").append(Arrays.toString(values)).append("\n");
         }
         return sb.toString();
     }
