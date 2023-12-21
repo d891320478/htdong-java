@@ -156,11 +156,6 @@
 				<version>8.0.29</version>
 			</dependency>
 			<dependency>
-				<groupId>org.opengauss</groupId>
-				<artifactId>opengauss-jdbc</artifactId>
-				<version>3.1.1-og</version>
-			</dependency>
-			<dependency>
 				<groupId>org.mybatis</groupId>
 				<artifactId>mybatis-spring</artifactId>
 				<version>3.0.3</version>
