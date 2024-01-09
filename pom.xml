@@ -22,7 +22,7 @@
 	<properties>
 		<dubbo-version>3.2.0</dubbo-version>
 		<jackson-version>2.14.0</jackson-version>
-		<mybatis-plus-version>3.5.4.1</mybatis-plus-version>
+		<mybatis-plus-version>3.5.5</mybatis-plus-version>
 		<protobuf-version>3.25.0</protobuf-version>
 		<spring-boot-version>3.2.1</spring-boot-version>
 		<spring-version>6.1.2</spring-version>
