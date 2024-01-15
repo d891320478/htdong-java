@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.htdong.client.domain.dto.AllGuardDTO;
@@ -36,12 +37,12 @@ public class TestController {
     }
 
     @GetMapping("getGuardList")
-    public ResponseEntity<String> getGuardList(long roomId) {
+    public ResponseEntity<String> getGuardList(@RequestParam("roomId") long roomId) {
         ApiResult<List<AllGuardDTO>> rlt = biliService.getAllGuard(roomId);
         StringBuilder sb = new StringBuilder();
         for (AllGuardDTO iter : rlt.getData()) {
             sb.append(iter.getUid()).append(" ").append(iter.getUserName()).append(" ")
-                .append(GuardLevelEnum.getById(iter.getGuardLevel()).getName()).append("<br/>");
+                    .append(GuardLevelEnum.getById(iter.getGuardLevel()).getName()).append("<br/>");
         }
         return ResponseEntity.ok(sb.toString());
     }
