@@ -59,8 +59,9 @@ public class HttpUtil {
             HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString());
             httpResult.setCode(response.statusCode());
             httpResult.setResponse(response);
+            httpResult.setContent(response.body());
             HTTP_LOG.info("url = {}, code = {}, res = {}.", url, response.statusCode(), response.body());
-            if (response.statusCode() == HttpURLConnection.HTTP_OK) {
+            if (response.statusCode() == HttpURLConnection.HTTP_OK && type != null) {
                 T result = JacksonUtil.getObjectMapper().readValue(response.body(), type);
                 httpResult.setData(result);
             }

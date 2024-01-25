@@ -14,13 +14,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class HttpResult<T> implements CommonResult {
-    
+
     public static final int HTTP_THROWABLE_CODE = -601;
 
     private int code;
     private T data;
     private HttpResponse<?> response;
     private long costTime;
+    private String content;
 
     @Override
     public boolean isSuccess() {
