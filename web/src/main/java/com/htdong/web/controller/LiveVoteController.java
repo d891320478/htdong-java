@@ -22,7 +22,6 @@ public class LiveVoteController {
 
     @GetMapping("/startVote")
     public ResponseEntity<Void> startVote() {
-        shellService.syncExecuteStartBiliHttp();
         return ResponseEntity.ok(null);
     }
 }
