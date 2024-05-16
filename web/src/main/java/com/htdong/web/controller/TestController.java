@@ -15,7 +15,6 @@ import com.htdong.core.bilibili.service.BiliService;
 import com.htdong.core.task.BiliGuardTask;
 
 import jakarta.annotation.Resource;
-import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
@@ -29,10 +28,6 @@ public class TestController {
 
     @GetMapping("checkLive")
     public ResponseEntity<ApiResult<Boolean>> checkLive(long roomId, HttpServletRequest request) {
-        ServletContext context = request.getServletContext();
-        System.out.println(System.identityHashCode(context));
-        System.out.println(context.getContextPath());
-        System.out.println(request.getContextPath());
         return ResponseEntity.ok(biliService.startLive(roomId));
     }
 
@@ -42,7 +37,7 @@ public class TestController {
         StringBuilder sb = new StringBuilder();
         for (AllGuardDTO iter : rlt.getData()) {
             sb.append(iter.getUid()).append(" ").append(iter.getUserName()).append(" ")
-                    .append(GuardLevelEnum.getById(iter.getGuardLevel()).getName()).append("<br/>");
+                .append(GuardLevelEnum.getById(iter.getGuardLevel()).getName()).append("<br/>");
         }
         return ResponseEntity.ok(sb.toString());
     }
