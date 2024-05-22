@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ApiResult<T> implements CommonResult {
+
     private int code;
     private String msg;
     private String message;
