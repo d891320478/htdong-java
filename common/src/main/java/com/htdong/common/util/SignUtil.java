@@ -13,9 +13,8 @@ public class SignUtil {
             messagedigest.update(origin);
             return Hex.encodeHexString(messagedigest.digest(origin));
         } catch (Throwable e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        return null;
     }
 
     public static String sha256Str(byte[] origin) {
@@ -24,8 +23,7 @@ public class SignUtil {
             messagedigest.update(origin);
             return Hex.encodeHexString(messagedigest.digest(origin));
         } catch (Throwable e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        return null;
     }
 }
