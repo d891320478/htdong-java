@@ -28,6 +28,12 @@ spring:
           max-idle: 4
           max-active: 16
           min-idle: 2
+  kafka:
+    bootstrap-servers: kafka.server.net:9092
+    consumer:
+      properties:
+        group:
+          id: ${spring.application.name}
 
 dubbo:
   application:
