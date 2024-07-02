@@ -15,6 +15,7 @@ spring:
       config:
         enabled: true
         root: config
+        defaultContext: application
         profileSeparator: '-'
   data:
     redis:
