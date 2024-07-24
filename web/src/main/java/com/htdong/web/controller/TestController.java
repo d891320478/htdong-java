@@ -1,8 +1,11 @@
 package com.htdong.web.controller;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.SendResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,7 +19,9 @@ import com.htdong.core.task.BiliGuardTask;
 
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 @RequestMapping("/test")
 public class TestController {
@@ -25,6 +30,8 @@ public class TestController {
     private BiliService biliService;
     @Resource
     private BiliGuardTask biliGuardTask;
+    @Resource
+    private KafkaTemplate<String, String> kafkaTemplate;
 
     @GetMapping("checkLive")
     public ResponseEntity<ApiResult<Boolean>> checkLive(long roomId, HttpServletRequest request) {
@@ -46,5 +53,16 @@ public class TestController {
     public ResponseEntity<String> guardTask() {
         biliGuardTask.execute();
         return ResponseEntity.ok("success");
+    }
+
+    @GetMapping("sendMsg")
+    public String sendMsg() {
+        CompletableFuture<SendResult<String, String>> future = kafkaTemplate.send("test000", "test000", "test000");
+        future.exceptionally(e -> {
+            log.error("sendMsg.", e);
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        });
+        return "success";
     }
 }

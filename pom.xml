@@ -25,9 +25,9 @@
 		<mybatis-plus-version>3.5.5</mybatis-plus-version>
 		<protobuf-version>3.25.0</protobuf-version>
 		<spring-boot-version>3.2.7</spring-boot-version>
-		<spring-version>6.1.6</spring-version>
+		<spring-version>6.1.11</spring-version>
 		<spring-cloud-version>4.1.0</spring-cloud-version>
-		<tomcat-version>10.1.19</tomcat-version>
+		<tomcat-version>10.1.26</tomcat-version>
 		<common-version>1.0.0-SNAPSHOT</common-version>
 	</properties>
 
@@ -187,6 +187,11 @@
 				<artifactId>commons-codec</artifactId>
 				<version>1.15</version>
 			</dependency>
+			<dependency>
+				<groupId>org.apache.zookeeper</groupId>
+				<artifactId>zookeeper</artifactId>
+				<version>3.9.2</version>
+			</dependency>
 			<!-- 日志 -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
@@ -196,12 +201,12 @@
 			<dependency>
 				<groupId>ch.qos.logback</groupId>
 				<artifactId>logback-core</artifactId>
-				<version>1.4.12</version>
+				<version>1.5.6</version>
 			</dependency>
 			<dependency>
 				<groupId>ch.qos.logback</groupId>
 				<artifactId>logback-classic</artifactId>
-				<version>1.4.12</version>
+				<version>1.5.6</version>
 			</dependency>
 			<!-- jackson -->
 			<dependency>
@@ -278,9 +283,9 @@
 			</dependency>
 			<!-- 其它 -->
 			<dependency>
-				<groupId>org.apache.zookeeper</groupId>
-				<artifactId>zookeeper</artifactId>
-				<version>3.9.2</version>
+				<groupId>org.springframework.kafka</groupId>
+				<artifactId>spring-kafka</artifactId>
+				<version>3.1.2</version>
 			</dependency>
 			<dependency>
 				<groupId>org.bouncycastle</groupId>

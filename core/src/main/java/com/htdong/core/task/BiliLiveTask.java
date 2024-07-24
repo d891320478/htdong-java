@@ -2,7 +2,6 @@ package com.htdong.core.task;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import com.htdong.client.domain.db.NotStartLiveDO;
@@ -24,7 +23,7 @@ public class BiliLiveTask {
     private NotStartLiveMapper notStartLiveMapper;
 
     @Async
-    @Scheduled(cron = "0 16 9 * * ?")
+    // @Scheduled(cron = "0 16 9 * * ?")
     public void checkStart() {
         ApiResult<Boolean> rlt = biliService.startLive(liveRoomId);
         if (rlt.isSuccess()) {
