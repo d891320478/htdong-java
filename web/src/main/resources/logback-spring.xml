@@ -76,6 +76,23 @@
             <pattern>${logPattern}</pattern>
         </layout>
     </appender>
+    
+    <appender name="KAFKA_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logPath}/kafka.log</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>${logPath}/kafka.log.%d{yyyy-MM-dd}-%i.gz</FileNamePattern>
+            <maxFileSize>100MB</maxFileSize>
+            <maxHistory>7</maxHistory>
+            <totalSizeCap>500MB</totalSizeCap>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>${loglevel}</level>
+        </filter>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>${logPattern}</pattern>
+        </layout>
+    </appender>
 
     <appender name="SQL" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${logPath}/sql.log</file>
@@ -113,6 +130,11 @@
     <logger name="org.apache.dubbo" additivity="false">
         <level value="debug" />
         <appender-ref ref="DUBBO_LOG" />
+    </logger>
+    
+    <logger name="org.springframework.kafka" additivity="false">
+        <level value="debug" />
+        <appender-ref ref="KAFKA_LOG" />
     </logger>
     
     <logger name="org.apache.ibatis" additivity="false">

@@ -66,7 +66,7 @@ public class BiliGuardTask {
         }
         // 删除过期舰长移到历史表
         QueryWrapper<GuardDO> q = new QueryWrapper<>();
-        LocalDateTime today = LocalDateTime.of(LocalDate.now(), LocalTime.MIN); 
+        LocalDateTime today = LocalDateTime.of(LocalDate.now(), LocalTime.MIN);
         q.lt(GuardDO.DB_FIELD_GMT_MODIFIED, today);
         List<GuardDO> list = guardMapper.selectList(q);
         for (GuardDO iter : list) {
