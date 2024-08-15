@@ -1,13 +1,14 @@
 package com.htdong.web.controller;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileInputStream;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Base64;
-import java.util.Scanner;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,21 +31,24 @@ import lombok.extern.slf4j.Slf4j;
 public class BiliController {
 
     @GetMapping("/giftList")
-    public ResponseEntity<String> giftList() throws FileNotFoundException {
+    public ResponseEntity<String> giftList() throws IOException {
         LocalDate today = LocalDate.now();
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         StringBuilder sb = new StringBuilder();
         File f = new File("/data/biliDanMu222272/" + today.format(format) + ".log");
         if (f.exists()) {
-            try (Scanner in = new Scanner(f)) {
-                while (in.hasNextLine()) {
-                    String s = in.nextLine();
-                    if (s.substring(20).startsWith("[SC]")) {
-                        sb.append(s).append("<br/>");
-                    } else if (s.substring(20).startsWith("[Gift]")) {
-                        sb.append(s).append("<br/>");
-                    } else if (s.substring(20).startsWith("[Guard]")) {
-                        sb.append(s).append("<br/>");
+            try (FileInputStream in = new FileInputStream(f)) {
+                String dm = new String(in.readAllBytes());
+                String[] ss = dm.split("\n");
+                for (String s : ss) {
+                    if (StringUtils.isNotBlank(s) && s.startsWith("[")) {
+                        if (s.substring(20).startsWith("[SC]")) {
+                            sb.append(s).append("<br/>");
+                        } else if (s.substring(20).startsWith("[Gift]")) {
+                            sb.append(s).append("<br/>");
+                        } else if (s.substring(20).startsWith("[Guard]")) {
+                            sb.append(s).append("<br/>");
+                        }
                     }
                 }
             }

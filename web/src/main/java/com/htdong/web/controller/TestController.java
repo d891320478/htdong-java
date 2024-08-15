@@ -11,11 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.htdong.client.domain.db.GuardDO;
 import com.htdong.client.domain.dto.AllGuardDTO;
 import com.htdong.client.domain.enums.GuardLevelEnum;
 import com.htdong.common.domain.result.ApiResult;
 import com.htdong.core.bilibili.service.BiliService;
 import com.htdong.core.task.BiliGuardTask;
+import com.htdong.dal.mapper.GuardMapper;
 
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
@@ -32,6 +35,8 @@ public class TestController {
     private BiliGuardTask biliGuardTask;
     @Resource
     private KafkaTemplate<String, String> kafkaTemplate;
+    @Resource
+    private GuardMapper guardMapper;
 
     @GetMapping("checkLive")
     public ResponseEntity<ApiResult<Boolean>> checkLive(long roomId, HttpServletRequest request) {
@@ -49,9 +54,13 @@ public class TestController {
         return ResponseEntity.ok(sb.toString());
     }
 
-    @GetMapping("guardTask")
-    public ResponseEntity<String> guardTask() {
-        biliGuardTask.execute();
+    @GetMapping("test")
+    public ResponseEntity<String> test() {
+        QueryWrapper<GuardDO> qw = new QueryWrapper<>();
+        qw.gt(GuardDO.DB_FIELD_ID, 0L);
+        qw.and(i -> i.eq(GuardDO.DB_FIELD_GMT_CREATE, "2024-08-13 01:30:00").or().eq(GuardDO.DB_FIELD_GMT_MODIFIED,
+            "2024-08-13 01:30:00"));
+        guardMapper.selectList(qw);
         return ResponseEntity.ok("success");
     }
 
