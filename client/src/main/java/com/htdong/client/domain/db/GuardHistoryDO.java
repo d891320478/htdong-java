@@ -21,8 +21,8 @@ public class GuardHistoryDO extends AbstractDbDO {
     public static final String DB_FIELD_BILI_UID = "bili_uid";
     public static final String DB_FIELD_BILI_NICK_NAME = "bili_nick_name";
     public static final String DB_FIELD_GUARD_LEVEL = "guard_level";
-    public static final String DB_FIELD_GMT_EXPIRED = "gmt_expired";
     public static final String DB_FIELD_ROOM_ID = "room_id";
+    public static final String DB_FIELD_GMT_START = "gmt_start";
 
     private Long biliUid;
     private String biliNickName;
@@ -32,6 +32,6 @@ public class GuardHistoryDO extends AbstractDbDO {
      * @see com.htdong.client.domain.enums.GuardLevelEnum
      */
     private Integer guardLevel;
-    private LocalDate gmtExpired;
     private Long roomId;
+    private LocalDate gmtStart;
 }

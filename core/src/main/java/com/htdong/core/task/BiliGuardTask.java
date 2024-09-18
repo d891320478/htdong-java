@@ -76,8 +76,8 @@ public class BiliGuardTask {
             history.setBiliUid(iter.getBiliUid());
             history.setBiliNickName(iter.getBiliNickName());
             history.setGuardLevel(iter.getGuardLevel());
-            history.setGmtExpired(LocalDate.now().minusDays(1));
             history.setRoomId(iter.getRoomId());
+            history.setGmtStart(iter.getGmtCreate().toLocalDate().minusDays(-1));
             guardHistoryMapper.insert(history);
             guardMapper.deleteById(iter.getId());
         }
