@@ -55,6 +55,12 @@
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 		</dependency>
+		<!--
+		<dependency>
+			<groupId>org.apache.shardingsphere</groupId>
+			<artifactId>shardingsphere-jdbc-core</artifactId>
+		</dependency>
+		-->
 		<!-- javax -->
 		<dependency>
 			<groupId>jakarta.annotation</groupId>

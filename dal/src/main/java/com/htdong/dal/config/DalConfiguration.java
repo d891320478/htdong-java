@@ -1,6 +1,7 @@
 package com.htdong.dal.config;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Value;
@@ -48,8 +49,19 @@ public class DalConfiguration {
         return dataSource;
     }
 
+    // @Bean
+    // DataSource shardingSphereDataSource() throws SQLException {
+    // Map<String, DataSource> dataSourceMap = new HashMap<>();
+    // dataSourceMap.put("htdong", dataSource());
+    //
+    // ShardingRuleConfiguration shardingRuleConfig = new ShardingRuleConfiguration();
+    //
+    // return ShardingSphereDataSourceFactory.createDataSource(dataSourceMap,
+    // Collections.singleton(shardingRuleConfig), new Properties());
+    // }
+
     @Bean
-    MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean() throws IOException {
+    MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean() throws IOException, SQLException {
         MybatisSqlSessionFactoryBean bean = new MybatisSqlSessionFactoryBean();
         bean.setDataSource(dataSource());
         GlobalConfig.DbConfig dbConfig = new GlobalConfig.DbConfig();
