@@ -33,8 +33,6 @@ public class TestController {
     private BiliGuardTask biliGuardTask;
     @Resource
     private KafkaTemplate<String, String> kafkaTemplate;
-    @Resource
-    private GuardMapper guardMapper;
 
     @GetMapping("checkLive")
     public ResponseEntity<ApiResult<Boolean>> checkLive(long roomId, HttpServletRequest request) {
@@ -54,7 +52,8 @@ public class TestController {
 
     @GetMapping("test")
     public Object test() {
-        return guardMapper.selectList(null);
+        biliGuardTask.execute();
+        return "success";
     }
 
     @GetMapping("sendMsg")
