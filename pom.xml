@@ -21,12 +21,12 @@
 
 	<properties>
 		<dubbo-version>3.2.5</dubbo-version>
-		<jackson-version>2.14.0</jackson-version>
+		<jackson-version>2.17.2</jackson-version>
 		<mybatis-plus-version>3.5.5</mybatis-plus-version>
 		<protobuf-version>3.25.0</protobuf-version>
-		<spring-boot-version>3.2.7</spring-boot-version>
+		<spring-boot-version>3.3.3</spring-boot-version>
 		<spring-version>6.1.11</spring-version>
-		<spring-cloud-version>4.1.0</spring-cloud-version>
+		<spring-cloud-version>4.1.2</spring-cloud-version>
 		<tomcat-version>10.1.26</tomcat-version>
 		<common-version>1.0.0-SNAPSHOT</common-version>
 	</properties>
@@ -170,12 +170,18 @@
 				<artifactId>mybatis-plus-annotation</artifactId>
 				<version>${mybatis-plus-version}</version>
 			</dependency>
-			<!-- shardingsphere
+			<!-- shardingsphere -->
 			<dependency>
 				<groupId>org.apache.shardingsphere</groupId>
-				<artifactId>shardingsphere-jdbc-core</artifactId>
-				<version>5.4.2-SNAPSHOT</version>
-			</dependency> -->
+				<artifactId>shardingsphere-jdbc</artifactId>
+				<version>5.5.0</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.apache.shardingsphere</groupId>
+						<artifactId>shardingsphere-test-util</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
 			<!-- jakarta -->
 			<dependency>
 				<groupId>jakarta.annotation</groupId>
@@ -197,6 +203,11 @@
 				<groupId>org.apache.zookeeper</groupId>
 				<artifactId>zookeeper</artifactId>
 				<version>3.9.2</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-pool2</artifactId>
+				<version>2.12.0</version>
 			</dependency>
 			<!-- 日志 -->
 			<dependency>
@@ -238,6 +249,11 @@
 			<dependency>
 				<groupId>com.fasterxml.jackson.datatype</groupId>
 				<artifactId>jackson-datatype-joda</artifactId>
+				<version>${jackson-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.dataformat</groupId>
+				<artifactId>jackson-dataformat-xml</artifactId>
 				<version>${jackson-version}</version>
 			</dependency>
 			<!-- netty -->
@@ -291,7 +307,7 @@
 			<dependency>
 				<groupId>org.springframework.kafka</groupId>
 				<artifactId>spring-kafka</artifactId>
-				<version>3.1.2</version>
+				<version>3.2.4</version>
 			</dependency>
 			<dependency>
 				<groupId>org.bouncycastle</groupId>

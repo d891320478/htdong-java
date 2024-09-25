@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 public class MainApplication {
 
     public static void main(String[] args) {
+        System.setProperty("spring.cloud.compatibility-verifier.enabled", "false");
         try {
             SpringApplication.run(MainApplication.class, args);
         } catch (Throwable e) {
