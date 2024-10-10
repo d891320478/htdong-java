@@ -16,7 +16,6 @@ import com.htdong.client.domain.enums.GuardLevelEnum;
 import com.htdong.common.domain.result.ApiResult;
 import com.htdong.core.bilibili.service.BiliService;
 import com.htdong.core.task.BiliGuardTask;
-import com.htdong.dal.mapper.GuardMapper;
 
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;

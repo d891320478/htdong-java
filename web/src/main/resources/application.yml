@@ -10,6 +10,8 @@ spring:
   config:
     import: 'optional:zookeeper:'
   cloud:
+    compatibility-verifier:
+      enabled: false
     zookeeper:
       connect-string: ${zookeeper.address}
       config:
