@@ -1,8 +1,11 @@
 package com.htdong.web.controller;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
@@ -32,6 +35,16 @@ public class TestController {
     private BiliGuardTask biliGuardTask;
     @Resource
     private KafkaTemplate<String, String> kafkaTemplate;
+    @Resource
+    private StringRedisTemplate stringRedisTemplate;
+
+    @Value("#{${pokeball.downloadFilePath}}")
+    private Map<String, String> downloadFilePath;
+
+    @GetMapping("redis")
+    public Object redis() {
+        return downloadFilePath;
+    }
 
     @GetMapping("checkLive")
     public ResponseEntity<ApiResult<Boolean>> checkLive(long roomId, HttpServletRequest request) {
