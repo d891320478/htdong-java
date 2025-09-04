@@ -49,6 +49,7 @@ dubbo:
     serialization: protobuf
   registry:
     address: zookeeper://${zookeeper.address}
+    group: /dubbo
 
 server:
   port: 9760
