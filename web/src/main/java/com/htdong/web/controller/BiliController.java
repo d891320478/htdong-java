@@ -5,10 +5,14 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Base64;
+import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Pair;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +22,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.htdong.common.util.RsaUtil;
+import com.htdong.core.bilibili.service.BiliService;
 
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -29,6 +35,12 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/bili")
 @Slf4j
 public class BiliController {
+
+    @Value("${bili.live.room.id}")
+    private Long liveRoomId;
+
+    @Resource
+    private BiliService biliService;
 
     @GetMapping("/giftList")
     public ResponseEntity<String> giftList() throws IOException {
@@ -70,5 +82,14 @@ public class BiliController {
             return ResponseEntity.status(HttpStatus.BAD_GATEWAY).build();
         }
         return ResponseEntity.ok(null);
+    }
+
+    @GetMapping("/guardList")
+    public ResponseEntity<List<Pair<Long, String>>> guardList(String date) {
+        date = date + "235959";
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+        LocalDateTime ldt = LocalDateTime.parse(date, format);
+        List<Pair<Long, String>> list = biliService.getGuardByDate(liveRoomId, ldt);
+        return ResponseEntity.ok(list);
     }
 }
