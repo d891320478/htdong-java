@@ -47,12 +47,12 @@ public class TestController {
     }
 
     @GetMapping("checkLive")
-    public ResponseEntity<ApiResult<Boolean>> checkLive(long roomId, HttpServletRequest request) {
+    public ResponseEntity<ApiResult<Boolean>> checkLive(@RequestParam long roomId, HttpServletRequest request) {
         return ResponseEntity.ok(biliService.startLive(roomId));
     }
 
     @GetMapping("getGuardList")
-    public ResponseEntity<String> getGuardList(@RequestParam("roomId") long roomId) {
+    public ResponseEntity<String> getGuardList(@RequestParam long roomId) {
         ApiResult<List<AllGuardDTO>> rlt = biliService.getAllGuard(roomId);
         StringBuilder sb = new StringBuilder();
         for (AllGuardDTO iter : rlt.getData()) {

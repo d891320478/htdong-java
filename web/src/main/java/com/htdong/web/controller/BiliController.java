@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.htdong.common.util.RsaUtil;
@@ -85,7 +86,7 @@ public class BiliController {
     }
 
     @GetMapping("/guardList")
-    public ResponseEntity<List<Pair<Long, String>>> guardList(String date) {
+    public ResponseEntity<List<Pair<Long, String>>> guardList(@RequestParam String date) {
         date = date + "235959";
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
         LocalDateTime ldt = LocalDateTime.parse(date, format);
