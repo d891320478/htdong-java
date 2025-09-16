@@ -15,6 +15,11 @@ public final class BiliRpcServiceProto {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_AddNewGuardRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_AddNewGuardRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -25,18 +30,30 @@ public final class BiliRpcServiceProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\nbili.proto\032\036google/protobuf/wrappers.p" +
-      "roto2_\n\016BiliRpcService\022M\n\020RoomCanUseServ" +
-      "er\022\033.google.protobuf.Int64Value\032\032.google" +
-      ".protobuf.BoolValue\"\000BF\n\032com.htdong.comm" +
-      "on.rpc.biliB\023BiliRpcServiceProtoP\001Z\007./;b" +
-      "ili\242\002\007DEMOSRVb\006proto3"
+      "roto\032\033google/protobuf/empty.proto\"W\n\022Add" +
+      "NewGuardRequest\022\016\n\006roomId\030\001 \001(\003\022\013\n\003uid\030\002" +
+      " \001(\003\022\020\n\010username\030\003 \001(\t\022\022\n\nguardLevel\030\004 \001" +
+      "(\0052\235\001\n\016BiliRpcService\022M\n\020RoomCanUseServe" +
+      "r\022\033.google.protobuf.Int64Value\032\032.google." +
+      "protobuf.BoolValue\"\000\022<\n\013AddNewGuard\022\023.Ad" +
+      "dNewGuardRequest\032\026.google.protobuf.Empty" +
+      "\"\000B<\n\032com.htdong.common.rpc.biliB\023BiliRp" +
+      "cServiceProtoP\001Z\007./;bilib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.WrappersProto.getDescriptor(),
+          com.google.protobuf.EmptyProto.getDescriptor(),
         });
+    internal_static_AddNewGuardRequest_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_AddNewGuardRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_AddNewGuardRequest_descriptor,
+        new java.lang.String[] { "RoomId", "Uid", "Username", "GuardLevel", });
     com.google.protobuf.WrappersProto.getDescriptor();
+    com.google.protobuf.EmptyProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

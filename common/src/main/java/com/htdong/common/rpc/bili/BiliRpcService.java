@@ -17,5 +17,9 @@ static final String SERVICE_NAME = ".BiliRpcService";
 
     CompletableFuture<com.google.protobuf.BoolValue> roomCanUseServerAsync(com.google.protobuf.Int64Value request);
 
+    com.google.protobuf.Empty addNewGuard(com.htdong.common.rpc.bili.AddNewGuardRequest request);
+
+    CompletableFuture<com.google.protobuf.Empty> addNewGuardAsync(com.htdong.common.rpc.bili.AddNewGuardRequest request);
+
 
 }
