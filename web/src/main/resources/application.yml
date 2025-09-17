@@ -7,6 +7,10 @@ zookeeper:
 spring:
   application:
     name: htdong
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 200MB
   config:
     import: 'optional:zookeeper:'
   cloud:
@@ -52,6 +56,8 @@ dubbo:
     group: /dubbo
 
 server:
+  tomcat:
+    max-swallow-size: 200MB
   port: 9760
   servlet:
     context-path: /htdong
