@@ -3,7 +3,9 @@ package com.htdong.core.bilibili.service.impl;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang3.tuple.Pair;
@@ -105,14 +107,16 @@ public class BiliServiceImpl implements BiliService {
 
     @Override
     public List<Pair<Long, String>> getGuardByDate(long roomId, LocalDateTime ldt) {
-        List<Pair<Long, String>> rlt = new ArrayList<>();
-        List<GuardDO> glist = guardMapper.selectList(Wrappers.lambdaQuery(GuardDO.class).eq(GuardDO::getRoomId, roomId)
-            .lt(GuardDO::getGmtCreate, ldt.plusDays(1)));
-        glist.forEach(i -> rlt.add(Pair.of(i.getBiliUid(), i.getBiliNickName())));
+        Map<Long, String> map = new LinkedHashMap<>();
+        List<GuardDO> glist = guardMapper.selectList(
+            Wrappers.lambdaQuery(GuardDO.class).eq(GuardDO::getRoomId, roomId).le(GuardDO::getGmtCreate, ldt));
+        glist.forEach(i -> map.put(i.getBiliUid(), i.getBiliNickName()));
         List<GuardHistoryDO> ghlist = guardHistoryMapper
             .selectList(Wrappers.lambdaQuery(GuardHistoryDO.class).eq(GuardHistoryDO::getRoomId, roomId)
                 .le(GuardHistoryDO::getGmtStart, ldt.toLocalDate()).gt(GuardHistoryDO::getGmtCreate, ldt));
-        ghlist.forEach(i -> rlt.add(Pair.of(i.getBiliUid(), i.getBiliNickName())));
+        ghlist.forEach(i -> map.put(i.getBiliUid(), i.getBiliNickName()));
+        List<Pair<Long, String>> rlt = new ArrayList<>();
+        map.forEach((k, v) -> rlt.add(Pair.of(k, v)));
         return rlt;
     }
 }
