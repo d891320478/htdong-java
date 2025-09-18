@@ -58,6 +58,7 @@ dubbo:
     group: /dubbo
 
 server:
+  shutdown: graceful
   tomcat:
     max-swallow-size: 200MB
   port: 9760
