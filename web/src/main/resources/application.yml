@@ -18,6 +18,8 @@ spring:
       enabled: false
     zookeeper:
       connect-string: ${zookeeper.address}
+      discovery:
+        register: true
       config:
         enabled: true
         root: config
