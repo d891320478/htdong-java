@@ -19,6 +19,7 @@ spring:
     zookeeper:
       connect-string: ${zookeeper.address}
       discovery:
+        enabled: true
         register: true
       config:
         enabled: true
